@@ -290,4 +290,15 @@ Let me redraw the same diagram, but this time, a bit differently -
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryCircled.png)
 
+Look closely. The things inside the two yellow circles are two Simple Factories.
 
+And then, these two yellow circles are joined together in Factory Method pattern (red circle)
+
+That, ladies and gentlemen, is how you get an Abstract Factory.
+
+And that is what the mantra was talking about!
+
+
+>I can't stress this enough - Abstract Factory is a superpower. Because, it allows you to write systems in which the entire code/blackbox has a two orders bifurcation based on two different inputs. When you encounter such a system, don't think. Just go straight to Abstract Factory Design Pattern.
+
+##SOME MORE EXAMPLES OF ABSTRACT FACTORY
