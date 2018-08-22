@@ -256,4 +256,14 @@ Now, to handle the second one, we do this -
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryUncircled.png)
 
 
+Imagine a black colored box around this diagram, if you will. The only two inputs that go into this black box are $location and $type.
+
+At the top of this diagram, there should be a driver (which is not shown here) that receives these two inputs. 
+
+It takes $type and instantiates the corresponding concrete factory -
+```php
+$concreteFactory = new ucFirst($type)."Factory";
+```
+
+
 
