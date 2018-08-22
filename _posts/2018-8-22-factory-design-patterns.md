@@ -227,7 +227,7 @@ So for now, for interviews and stuff, you can remember the three conventional wi
 
 Here’s the magical mantra -
 
-
+>“You can join two Simple Factories using Factory Method Pattern. The resulting structure is called Abstract Factory and it is immensely powerful.”
 
 
 
