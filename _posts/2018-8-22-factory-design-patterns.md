@@ -288,7 +288,7 @@ Wait, but what the fuck does this diagram have to do with the magic matra introd
 
 Let me redraw the same diagram, but this time, a bit differently - 
 
-![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryCircled.png)
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryCircled.jpg)
 
 Look closely. The things inside the two yellow circles are two Simple Factories.
 
