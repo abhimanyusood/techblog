@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A bitchy approach to understanding factory design patterns
+title: An off-beat approach to understanding factory design patterns!
 published: true
 ---
 
