@@ -92,7 +92,10 @@ class CarFactory()
 
 Now, you may wonder, in real world, car_sedan and car_suv classes will have almost all the methods and members common (4 doors, 4 wheels, 1 steering) and only a few differences (stick vs. automatic). There would be a lot of duplicate code. 
 
-This brings us to our fourth point 
+This brings us to our fourth point -
+
+4.All the products (cars in this case) implement a single interface (or abstract class)
+
 
 
 
