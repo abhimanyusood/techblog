@@ -39,13 +39,13 @@ class car
 {
 	getCar($type)
 	{
-		if($type==’sedan’)
+		if($type=="sedan")
 		{
-			return “sedan”;
+			return "sedan";
 		}
-		else if($type==’suv’)
+		else if($type=="suv")
 		{
-			return “suv”;
+			return "suv";
 		}
 	}
 }
@@ -68,7 +68,7 @@ class car_suv implements car
 {
 	getCar()
 	{
-		return “suv”;
+		return "suv";
 	}
 }
 
@@ -76,7 +76,7 @@ class car_sedan implements car
 {
 	getCar()
 	{
-		return “sedan”;
+		return "sedan";
 	}
 }
 
@@ -84,7 +84,7 @@ class CarFactory()
 {
 	buildCar($type)
 	{
-		$car =  new “car_”.$type;
+		$car =  new "car_".$type;
 		return $car->getCar();
 	}
 }
