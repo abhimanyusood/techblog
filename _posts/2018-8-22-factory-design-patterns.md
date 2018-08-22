@@ -225,6 +225,11 @@ So for now, for interviews and stuff, you can remember the three conventional wi
 
 ## ABSTRACT FACTORY - THE MAGIC SWORD YOU ALREADY HOLD IN YOUR HAND WITHOUT EVEN REALIZING IT!
 
+Here’s the magical mantra -
+
+
+
+
 
 
 
