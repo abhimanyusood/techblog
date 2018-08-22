@@ -265,5 +265,29 @@ It takes $type and instantiates the corresponding concrete factory -
 $concreteFactory = new ucFirst($type)."Factory";
 ```
 
+Next, it calls the factory method makeCar() of the instantiated concrete class (which, you might remember, is the overridden version of AbstractFactory’s factory method)
+
+```php
+$concreteFactory->makeCar($type,$location)
+```
+
+makeCar() does this - 
+
+```php
+makeCar($type,$location)
+{
+	$car = new “car_”.$location.”_”.$type;
+	return $car->getCar();
+}
+```
+
+Do you see the beauty of it? No if-else conditions necessary. Black box remains a black box.
+
+
+Wait, but what the fuck does this diagram have to do with our earlier two design patterns?
+
+Let me redraw the same diagram, but this time, a bit differently - 
+
+
 
 
