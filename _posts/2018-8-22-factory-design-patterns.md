@@ -202,17 +202,25 @@ It’s the same as the conventional UML for Factory Method!
 So for now, for interviews and stuff, you can remember the three conventional wisdoms about Factory Method (uml, definition and php example). But understanding it my way has an enormous advantage that it immediately unlocks the full unexpected power of Factory Method, which we will now see.
 
 >A side note - Why is it called ‘Factory Method’?
->Because the abstract creator (abstract factory) will have a makeCar() method. And each of the concrete creators (concrete factories) will override this method in its own way. SedanFactory will say - 
-makeCar()
+>
+>Because the abstract creator (abstract factory) will have a makeCar() method. And each of the concrete creators (concrete factories) will override this method in its own way. 
+>
+>SedanFactory will say - 
+>
+>makeCar()
 {
 	$car = new car_sedan();
 }
+>
 >SuvFactory will say - 
+>
 >make Car()
 {
 	$car = new car_suv();
 }
+>
 >This method makeCar() is called the Factory Method. And the entire design pattern gets its name from it. So, it is very crucial. Just remember - 
+>
 >**In Factory Method, the abstract creator has a factoryMethod, which each of the concrete creator would override in its own way.**
 
 ## ABSTRACT FACTORY - THE MAGIC SWORD YOU ALREADY HOLD IN YOUR HAND WITHOUT EVEN REALIZING IT!
