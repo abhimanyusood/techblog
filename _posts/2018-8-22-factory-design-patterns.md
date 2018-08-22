@@ -137,3 +137,11 @@ But in the process, we discovered something so powerful, it will have huge impli
 [Here’s](https://stackoverflow.com/a/5740080) the best UML of Factory Method that I could find- 
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethodUML.png)
+
+And here’s the best definition -> 
+
+A concrete creator implements an abstract creator and creates a concrete product which implements an abstract product.
+
+Here’s the wikipedia PHP code for factory method pattern, that satisfies both the diagram and the definition - 
+
+
