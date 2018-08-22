@@ -106,7 +106,7 @@ If, at this point, you’re saying to yourself - “I can see the utility of usi
 
 ## FACTORY METHOD PATTERN
 
-Open any tutorial for this pattern, and you’ll pretty much find the same definition everywhere, that comes straight from the _Gang of Four_ handbook-
+Open [any tutorial](https://code.tutsplus.com/tutorials/design-patterns-the-factory-method-pattern--cms-24530) for this pattern, and you’ll pretty much find the same definition everywhere, that comes straight from the _Gang of Four_ handbook-
  
 "Define an interface for creating an object, but let subclasses decide which class to instantiate. The Factory method lets a class defer instantiation it uses to subclasses." 
 
@@ -382,8 +382,6 @@ That’s it.
 I hope this article would fucking change your life.
 
 Later, bitches!
-
-Footnotes : https://code.tutsplus.com/tutorials/design-patterns-the-factory-method-pattern--cms-24530
 
 
 
