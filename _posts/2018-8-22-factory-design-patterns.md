@@ -112,7 +112,13 @@ Open any tutorial for this pattern, and you’ll pretty much find the same defin
 
 Here’s the funny thing. When I read this definition, I immediately knew what each of those words meant individually. I knew what these words meant when put together. I perfectly understood both of the sentences.
 
+Yet, I had no fucking clue what Factory Method pattern was, or what was it supposed to do, or why was it supposed to be useful!
 
+So, I closed all the tutorials, opened a notebook, and started doodling on it. One thing was clear to me - I had to start with what I already knew. And that was Simple Factory. 
+
+So, I started drawing various diagrams, trying to visualize my understanding of Simple Factory. 
+
+At one point, I ended up with this figure - 
 
 
 
