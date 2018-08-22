@@ -253,7 +253,7 @@ Using Simple Factory, we handled the first one and avoided the use of if-elses.
 
 Now, to handle the second one, we do this - 
 
-![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryUncircled.png)
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryUncircled.jpg)
 
 
 Imagine a black colored box around this diagram, if you will. The only two inputs that go into this black box are $location and $type.
