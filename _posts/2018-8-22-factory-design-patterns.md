@@ -198,3 +198,6 @@ You see!
 Concentrate on the part inside the red snake.
 
 It’s the same as the conventional UML for Factory Method!
+
+So for now, for interviews and stuff, you can remember the three conventional wisdoms about Factory Method (uml, definition and php example). But understanding it my way has an enormous advantage that it immediately unlocks the full unexpected power of Factory Method, which we will now see.
+
