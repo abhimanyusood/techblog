@@ -220,7 +220,7 @@ make Car()
 	$car = new car_suv();
 }
 >```
->sss
+>ssss
 >This method makeCar() is called the Factory Method. And the entire design pattern gets its name from it. So, it is very crucial. Just remember - 
 >
 >**In Factory Method, the abstract creator has a factoryMethod, which each of the concrete creator would override in its own way.**
