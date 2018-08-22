@@ -18,5 +18,5 @@ What follows is a distilled version of my understanding of the three factory des
 
 So, without further ado, let’s begin our journey, straight with a practical example.
 
-Consider the following code - 
+Consider the following code -
 
