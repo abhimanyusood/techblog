@@ -193,3 +193,8 @@ Now watch me do this one teeny tiny thing -
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethodCircled.png)
 
+You see! 
+
+Concentrate on the part inside the red snake.
+
+It’s the same as the conventional UML for Factory Method!
