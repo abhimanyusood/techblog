@@ -122,6 +122,11 @@ At one point, I ended up with this figure -
 
 ![Untitled Diagram.jpg]({{site.baseurl}}/_posts/Untitled Diagram.jpg)
 
+This is Simple Factory. It beautifully solves the initial problem that we started with - bifurcating cars on the basis of $type without introducing a mishmash of if-else statement.
+
+But wait, there is another way to solve the exact same problem. What if we slightly change this diagram, and do this instead - 
+
+
 
 
 
