@@ -1,6 +1,6 @@
 ---
 layout: post
-title: You're down and under!
+title: A bitchy approach to understanding factory design patterns
 published: true
 ---
 
