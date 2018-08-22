@@ -60,8 +60,8 @@ A better solution - SIMPLE FACTORY
 1. Each "car" ("sedan","suv") is defined in a separate class of its own (car_suv.php, car_sedan.php)
 2. A separate class called CarFactory instantiates one of these classes depending on the $type it receives as input
 3. The CarFactory may do the instantiation via - 
-⋅⋅* Dynamic loading of class based on $type (new "car_".$type)
-⋅⋅* If-else condition (if($type=="suv")new car_suv())x
+* Dynamic loading of class based on $type (new "car_".$type)
+* If-else condition (if($type=="suv")new car_suv())x
 
 ```php
 class car_suv implements car
