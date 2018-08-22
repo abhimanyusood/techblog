@@ -223,7 +223,7 @@ So for now, for interviews and stuff, you can remember the three conventional wi
 >
 >**In Factory Method, the abstract creator has a factoryMethod, which each of the concrete creator would override in its own way.**
 
-## ABSTRACT FACTORY - THE MAGIC SWORD YOU ALREADY HOLD IN YOUR HAND WITHOUT EVEN REALIZING IT!
+## ABSTRACT FACTORY - THE MAGIC SWORD YOU ALREADY HOLD IN YOUR HANDs WITHOUT EVEN REALIZING IT!
 
 Here’s the magical mantra -
 
