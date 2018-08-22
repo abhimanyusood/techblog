@@ -95,6 +95,13 @@ Now, you may wonder, in real world, car_sedan and car_suv classes will have almo
 This brings us to our fourth point -
 
 4. All the products (cars in this case) implement a single interface (or abstract class)
+```php
+class car
+{
+	getCar();
+}
+```
+
 
 
 
