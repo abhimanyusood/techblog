@@ -134,7 +134,7 @@ I can’t stress this enough. Factory Method is just and additional bifurcation 
 
 But in the process, we discovered something so powerful, it will have huge implications. We’ll come to these implications in a moment, but first let’s see how my understanding of Factory Method as a variant of Simple Factory, is compatible with its conventional definitions.
 
-Here’s the best UML of Factory Method that I could find (https://stackoverflow.com/a/5740080) - 
+[Here’s](https://stackoverflow.com/a/5740080) the best UML of Factory Method that I could find- 
 
 n
 
