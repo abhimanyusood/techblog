@@ -94,17 +94,16 @@ Now, you may wonder, in real world, car_sedan and car_suv classes will have almo
 
 This brings us to our fourth point -
 
-4 All the products (cars in this case) implement a single interface (or abstract class)
-```php
-class car
-{
-	getCar();
-}
-```
+  4 All the products (cars in this case) implement a single interface (or abstract class)
+  ```php
+  class car
+  {
+      getCar();
+  }
+  ```
 
+If, at this point, you’re saying to yourself - “I can see the utility of using an abstract class here - to cram all the common methods together - but what the fuck is the use of an interface? It’s not as if interface can house any methods! Why are they even included in our discussion?” then, my friend, you are colossally fucked. You don’t yet understand the sheer beauty and utility of binding similar classes with a common interface, forcing them to follow a common pattern. You don’t understand the very essence of object oriented programming. 
 
-n
-n
 
 
 
