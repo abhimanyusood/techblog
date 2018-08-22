@@ -104,6 +104,15 @@ This brings us to our fourth point -
 
 If, at this point, you’re saying to yourself - “I can see the utility of using an abstract class here - to cram all the common methods together - but what the fuck is the use of an interface? It’s not as if interface can house any methods! Why are they even included in our discussion?” then, my friend, you are colossally fucked. You don’t yet understand the sheer beauty and utility of binding similar classes with a common interface, forcing them to follow a common pattern. You don’t understand the very essence of object oriented programming. 
 
+## FACTORY METHOD PATTERN
+
+Open any tutorial for this pattern, and you’ll pretty much find the same definition everywhere, that comes straight from the _Gang of Four_ handbook-
+ 
+"Define an interface for creating an object, but let subclasses decide which class to instantiate. The Factory method lets a class defer instantiation it uses to subclasses." 
+
+Here’s the funny thing. When I read this definition, I immediately knew what each of those words meant individually. I knew what these words meant when put together. I perfectly understood both of the sentences.
+
+
 
 
 
