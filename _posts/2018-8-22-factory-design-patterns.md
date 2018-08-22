@@ -126,8 +126,7 @@ This is Simple Factory. It beautifully solves the initial problem that we starte
 
 But wait, there is another way to solve the exact same problem. What if we slightly change this diagram, and do this instead - 
 
-
-
+![Untitled Diagram.png]({{site.baseurl}}/_posts/Untitled Diagram.png)
 
 
 
