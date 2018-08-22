@@ -34,5 +34,37 @@ This is a simple car object that returns a "car" (I’d love to own an actual La
 
 Now suppose, we get an additional requirement - the system will receive an additional input $type, and that particular model of car has to be returned.
 
+```php
+class car
+{
+	getCar($type)
+	{
+		if($type==’sedan’)
+		{
+			return “sedan”;
+		}
+		else if($type==’suv’)
+		{
+			return “suv”;
+		}
+	}
+}
+```
+
+Simple enough, isn’t it?
+
+There’s just one problem - this code is not extendable. Plus it violates **open-close principle** _(software entities like classes, methods etc must be open for extension but closed for modification)_
+
+A better solution - SIMPLE FACTORY
+
+1.Each "car" ("sedan","suv") is defined in a separate class of its own (car_suv.php, car_sedan.php)
+2.A separate class called CarFactory instantiates one of these classes depending on the $type it receives as input
+3.The CarFactory may do the instantiation via - 
+	a.Dynamic loading of class based on $type (new "car_".$type)
+	b.If-else condition (if($type=="suv")new car_suv())
+
+
+
+
 
 
