@@ -144,4 +144,41 @@ A concrete creator implements an abstract creator and creates a concrete product
 
 Here’s the wikipedia PHP code for factory method pattern, that satisfies both the diagram and the definition - 
 
+```php
+/* Factory and car interfaces */
 
+interface CarFactory 
+{
+    public function makeCar();
+}
+
+interface Car 
+{
+    public function getType();
+}
+
+/* Concrete implementations of the factory and car */
+
+class SedanFactory implements CarFactory 
+{
+    public function makeCar() 
+    {
+        return new Sedan();
+    }
+}
+
+class Sedan implements Car 
+{
+    public function getType() 
+    {
+        return 'Sedan';
+    }
+}
+
+/* Client */
+
+$factory = new SedanFactory();
+$car = $factory->makeCar();
+print $car->getType();
+
+```
