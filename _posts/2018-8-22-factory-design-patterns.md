@@ -20,3 +20,14 @@ So, without further ado, let’s begin our journey, straight with a practical ex
 
 Consider the following code -
 
+```php
+class car
+{
+	getCar()
+	{
+		return “car”;
+	}
+}
+```
+
+
