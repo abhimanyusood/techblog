@@ -189,7 +189,7 @@ Consider my diagram again-
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethod.png)
 
-Watch me do this one teeny tiny thing - 
+Watch me draw one teeny tiny red line - 
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethodCircled.png)
 
