@@ -128,6 +128,13 @@ But wait, there is another way to solve the exact same problem. What if we sligh
 
 ![Untitled Diagram.png]({{site.baseurl}}/_posts/Untitled Diagram.png)
 
+We have simply introduced a bifurcation at the level of factory itself. Now, instead of one, there are two factories producing the two cars. We’ve pretty much solved the same problem, just a bit differently.
+
+I can’t stress this enough. Factory Method is just and additional bifurcation ahead of Simple Factory. In its very essence, we just solved the same problem that we did with Simple Factory, just a bit differently.
+
+But in the process, we discovered something so powerful, it will have huge implications. We’ll come to these implications in a moment, but first let’s see how my understanding of Factory Method as a variant of Simple Factory, is compatible with its conventional definitions.
+
+Here’s the best UML of Factory Method that I could find (https://stackoverflow.com/a/5740080) - 
 
 
 
