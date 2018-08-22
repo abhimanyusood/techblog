@@ -120,6 +120,7 @@ So, I started drawing various diagrams, trying to visualize my understanding of 
 
 At one point, I ended up with this figure - 
 
+![Untitled Diagram.jpg]({{site.baseurl}}/_posts/Untitled Diagram.jpg)
 
 
 
