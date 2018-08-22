@@ -120,13 +120,13 @@ So, I started drawing various diagrams, trying to visualize my understanding of 
 
 At one point, I ended up with this figure - 
 
-![Untitled Diagram.jpg]({{site.baseurl}}/_posts/Untitled Diagram.jpg)
+![Untitled Diagram.jpg]({{site.baseurl}}/images/factory-design-patterns/SimpleFactory.jpg)
 
 This is Simple Factory. It beautifully solves the initial problem that we started with - instantiating different cars on the basis of $type without introducing a mishmash of if-else statement.
 
 But wait, there is another way to solve the exact same problem. What if we slightly change this diagram, and do this instead - 
 
-![Untitled Diagram.png]({{site.baseurl}}/_posts/Untitled Diagram.png)
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethod.png)
 
 We have simply introduced a bifurcation at the level of factory itself. Now, instead of one, there are two factories producing the two cars. We’ve pretty much solved the same problem, just a bit differently.
 
