@@ -229,6 +229,13 @@ Here’s the magical mantra -
 
 >“You can join two Simple Factories using Factory Method Pattern. The resulting structure is called Abstract Factory and it is immensely powerful.”
 
+Here’s how.
+
+Let’s say in our nice little car example, suddenly, another parameter is introduced - location. Now, car manufacturing is taking place in two locations USA and UK. Both locations produce the same models as before, but slightly differently.
+
+If you do not realize the exact implication of this harmless looking new requirement, let me elaborate just how cornered we are.
+
+Consider our car manufacturing code as a black box. When we began this article, that black box had no input. It just produced an output - a “car”.
 
 
 
