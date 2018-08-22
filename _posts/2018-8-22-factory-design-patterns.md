@@ -182,3 +182,11 @@ $car = $factory->makeCar();
 print $car->getType();
 
 ```
+
+Now that we have listed all three conventional things about Factory Method, let’s see how they're compatible with my understanding - 
+
+Consider my diagram again- 
+
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethod.png)
+
+
