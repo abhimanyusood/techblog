@@ -284,7 +284,7 @@ makeCar($type,$location)
 Do you see the beauty of it? No if-else conditions necessary. Black box remains a black box.
 
 
-Wait, but what the fuck does this diagram have to do with our earlier two design patterns?
+Wait, but what the fuck does this diagram have to do with the magic matra introduced in the beginning of this section?
 
 Let me redraw the same diagram, but this time, a bit differently - 
 
