@@ -322,5 +322,5 @@ else if darktheme:
 
 Here’s how you would do it using Abstract Factory -
 
-
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/GUIthemeUML.png)
 
