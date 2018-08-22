@@ -302,3 +302,25 @@ And that is what the mantra was talking about!
 >I can't stress this enough - Abstract Factory is a superpower. Because, it allows you to write systems in which the entire code/blackbox has a two orders bifurcation based on two different inputs. When you encounter such a system, don't think. Just go straight to Abstract Factory Design Pattern.
 
 ##SOME MORE EXAMPLES OF ABSTRACT FACTORY
+
+Let’s say you are implementing a GUI app that has two elements - a toolbar, and a dialog box. That, right there, is your first level of bifurcation.
+
+Now, let’s assume that you want to develop this app in two different themes - Light Theme and Dark Theme.
+
+That is your second level of bifurcation.
+
+If you were doing this with if else, the code would look something like this - 
+
+```
+if lighttheme:
+	if toolbar:
+	else if dialog:
+else if darktheme:
+	if toolbar:
+	else if dialog:
+```
+
+Here’s how you would do it using Abstract Factory -
+
+
+
