@@ -63,6 +63,33 @@ A better solution - SIMPLE FACTORY
 	a.Dynamic loading of class based on $type (new "car_".$type)
 	b.If-else condition (if($type=="suv")new car_suv())
 
+```php
+class car_suv implements car
+{
+	getCar()
+	{
+		return “suv”;
+	}
+}
+
+class car_sedan implements car
+{
+	getCar()
+	{
+		return “sedan”;
+	}
+}
+
+class CarFactory()
+{
+	buildCar($type)
+	{
+		$car =  new “car_”.$type;
+		return $car->getCar();
+	}
+}
+```
+
 
 
 
