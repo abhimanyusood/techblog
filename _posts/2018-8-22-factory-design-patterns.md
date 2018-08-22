@@ -30,7 +30,9 @@ class car
 }
 ```
 
+This is a simple car object that returns a “car” (I’d love to own an actual Lamborghini some day, but for now, I’ll pretend that the string “car” is the car itself)
 
+Now suppose, we get an additional requirement - the system will receive an additional input ```php $type ```, and that particular model of car has to be returned.
 
 
 
