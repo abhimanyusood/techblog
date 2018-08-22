@@ -241,8 +241,19 @@ If you do not realize the exact implication of this harmless looking new require
 
 Consider our car manufacturing code as a black box. When we began this article, that black box had no input. It just produced an output - a “car”.
 
+Then we introduced an input, $type. And walked straight into our first problem - Now, our black box had to be internally split into two black boxes - each of which handles one $type. For doing this, most people would have used if-else conditions, as we witnessed in our first problem. If there were more than 2 $types, as many if-else conditions would've had to be used. The entire code base in essence would've had to be branched.
 
+That was one level of bifurcation.
 
+What happens when we introduce another input $location? Now not only the car can differ by $type, but by $location as well. A US sedan will be different from a UK sedan which will be different from a UK suv. The if-else conditions don’t double, they get squared! The codebase is now a messy soup of spaghettified if-else's. 
+
+This was the second level of bifurcation.
+
+Using Simple Factory, we handled the first one and avoided the use of if-elses.
+
+Now, to handle the second one, we do this - 
+
+![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryUncircled.png)
 
 
 
