@@ -328,4 +328,63 @@ Here’s the best UML for Abstract Factory I could find -
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/AbstractFactoryUML.png)
 
+And you can see, it follows the exact same pattern.
+
+From an understanding point of view, this diagram can almost be directly be translated to my home made diagram that I introduced in the beginning of this section. But those of you with a keener eye will notice one differece - 
+
+In my diagram, ProductA1, ProdutA2, ProductB1, and ProductB2 would have implemented one common interface - AbstractProduct
+
+But here, ProductA1 and Product A2 implement one interface - AbstractProductA
+while,
+Product B1 and Product B2 implement another interface - AbstractProductB
+
+This is as if in our example, car_usa_sedan and car_uk_sedan would have implemented interface - car_sedan, while, car_usa_suv and car_uk_suv would have implemented another interface - car_suv, instead of all four of them implementing a common interface - car.
+
+I must clarify that technically speaking, the UML’s understanding is more correct than mine. But either way, it doesn’t matter. When we come down to the Product level, the exact interface we choose to implement depends on the nature of our problem Interfaces, in essence, are just constraining mechanisms, that force the code to follow a pattern. 
+
+## EPILOGUE
+
+I must end this by telling you how it all started. How the fuck I found myself in a position where I could no longer do without a basic knowledge of these design patterns.
+
+
+You see, I was designing a scoring system.
+
+Here's how it works - 
+
+A candidate gives a test.
+
+We have the candidate’s answer
+We have the correct answer
+And we have n number of criteria (competencies) on which to score the candidate (speed, accuracy, grammar etc.)
+
+But that’s not all!
+
+The test might be conducted in multiple languages!
+
+
+If you’ve understood the essence of what I've taught you in this article, then you will immediately realize that we're facing black-box system with two-level bifurcation here. 
+
+The first level - competencies 
+The second level - languages.
+
+Lo and Behold! Abstract Factory design pattern to the rescue.
+
+I would end this article by giving you a homework. Normally, I don’t do this, but this time, I think it’s necessary.
+
+So, here goes - 
+
+1. Look around you and try to identify real life problems that exhibit _"a black-box with two-level bifurcation"_ structure.
+2. I want you to take this understanding from this article, and use it to solve any one of these problems. Implement the codebase using Abstract Factory design pattern
+3. Once you’re comfortable with recognizing and using Abstract Factory, I want you to go through all the technical definitions and expositions of all the three factory design patterns we discussed in this article, and see how they translate into our way of understanding them. Are the two compatible, or is there a discrepancy. If so, what modifications in our understanding (both yours and mine) are required. Let me know, and I will update this article accordingly.
+
+That’s it.
+
+I hope this article would fucking change your life.
+
+Later, bitches!
+
+Footnotes : https://code.tutsplus.com/tutorials/design-patterns-the-factory-method-pattern--cms-24530
+
+
+
 
