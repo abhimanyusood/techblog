@@ -140,7 +140,7 @@ But in the process, we discovered something so powerful, it will have huge impli
 
 And here’s the best definition -> 
 
-A concrete creator implements an abstract creator and creates a concrete product which implements an abstract product.
+_A concrete creator implements an abstract creator and creates a concrete product which implements an abstract product._
 
 Here’s the wikipedia PHP code for factory method pattern, that satisfies both the diagram and the definition - 
 
@@ -189,7 +189,7 @@ Consider my diagram again-
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethod.png)
 
-Now watch me do this one teeny tiny thing - 
+Watch me do this one teeny tiny thing - 
 
 ![Untitled Diagram.png]({{site.baseurl}}/images/factory-design-patterns/FactoryMethodCircled.png)
 
