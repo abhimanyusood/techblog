@@ -227,7 +227,7 @@ make Car()
 >
 >**In Factory Method, the abstract creator has a factoryMethod, which each of the concrete creator would override in its own way.**
 
-## ABSTRACT FACTORY - THE MAGIC SWORD YOU ALREADY HOLD IN YOUR HANDs WITHOUT EVEN REALIZING IT!
+## ABSTRACT FACTORY - the magic sword you already hold in your hands and don't even realize!
 
 Here’s the magical mantra -
 
