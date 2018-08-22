@@ -208,16 +208,16 @@ So for now, for interviews and stuff, you can remember the three conventional wi
 >SedanFactory will say - 
 >
 >makeCar()
-{
-	$car = new car_sedan();
-}
+>{
+>	$car = new car_sedan();
+>}
 >
 >SuvFactory will say - 
 >
 >make Car()
-{
-	$car = new car_suv();
-}
+>{
+>	$car = new car_suv();
+>}
 >
 >This method makeCar() is called the Factory Method. And the entire design pattern gets its name from it. So, it is very crucial. Just remember - 
 >
