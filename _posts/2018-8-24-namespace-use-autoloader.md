@@ -31,7 +31,7 @@ class demo
 {
 	function doStuff()
     {
-    	echo "foo";
+    	echo "bar";
     }
 }
 ```
@@ -78,7 +78,7 @@ class demo
 {
 	function doStuff()
     {
-    	echo "foo";
+    	echo "bar";
     }
 }
 ```
@@ -97,4 +97,42 @@ And the conflict resolution came as a natural outcome of that process.
 
 This is the essence of namespaces.
 
+>I'm not saying that just for the sake of saying. Once you deploy namespaces, each class gets a full name, and you HAVE to refer to a class by its full name!
 
+I do this - 
+
+index.php
+```php
+require_once 'Foos/demo.php';
+require_once 'Bars/demo.php';
+
+$fooDemo = new demo();
+$fooDemo->doStuff();
+```
+
+and I get the error - 
+```php
+class 'demo' not found in root\index.php
+```
+
+Notice that the error doesn't say 'conflict'. It says, class 'not found'.
+
+Class was genuinely not found. Becuase we had to refer it with it's full name. And we didn't.
+
+But if we do - 
+
+index.php
+```php
+require_once 'Foos/demo.php';
+require_once 'Bars/demo.php';
+
+$fooDemo = new Foo\demo();
+$fooDemo->doStuff();
+```
+
+Bingo!
+
+```php
+OUTPUT
+foo
+```
