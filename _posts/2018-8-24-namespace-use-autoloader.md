@@ -13,4 +13,33 @@ root
     	demo.php
     index.php
         
+
+Foos/demo.php
+```php
+class demo
+{
+	function doStuff()
+    {
+    	echo "foo";
+    }
+}
+```
+
+Bars/demo.php
+```php
+class demo
+{
+	function doStuff()
+    {
+    	echo "foo";
+    }
+}
+```
+
+index.php
+```php
+require_once 'Foos/demo.php';
+require_once 'Bars/demo.php';
+```
+
         
