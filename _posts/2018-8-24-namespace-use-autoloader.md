@@ -47,4 +47,6 @@ This is the error I get -
 Cannot redeclare class demo in root\Bars\demo.php
 ```
 
-        
+>This is the wrong approach to understanding namespaces
+
+
