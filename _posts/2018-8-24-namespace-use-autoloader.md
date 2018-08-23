@@ -136,3 +136,20 @@ Bingo!
 OUTPUT
 foo
 ```
+
+That's all well and good, but wouldn't it be tedious to use full class names EVERY TIME!
+
+That's where **use** comes to rescue.
+
+I do this - 
+
+index.php
+```php
+require_once 'Foos/demo.php';
+require_once 'Bars/demo.php';
+
+use Foo\demo;
+
+$fooDemo = new Foo\demo();
+$fooDemo->doStuff();
+```
