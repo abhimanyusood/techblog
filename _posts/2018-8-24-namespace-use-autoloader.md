@@ -90,3 +90,11 @@ require_once 'Bars/demo.php';
 ```
 
 No error this time!
+
+You see. That's all we did. We sort of orgainzed our classes into respective drawers. 
+
+And the conflict resolution came as a natural outcome of that process. 
+
+This is the essence of namespaces.
+
+
