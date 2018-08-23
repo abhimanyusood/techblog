@@ -42,4 +42,9 @@ require_once 'Foos/demo.php';
 require_once 'Bars/demo.php';
 ```
 
+This is the error I get - 
+```php
+Cannot redeclare class demo in root\Bars\demo.php
+```
+
         
