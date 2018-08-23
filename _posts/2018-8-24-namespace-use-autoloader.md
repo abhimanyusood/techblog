@@ -206,7 +206,11 @@ That's pretty much it.
 
 We define a function my_autoloader that takes a class (full) name as input (the one defined as per namespaces), invert backslashes to forward slashes, prefix __DIR__ to get full class path and includes it!
 
-in your index.php, remove the two requires, and add a new one - 
+Then we register this function with spl_autoload_register().
+
+That's pretty much it.
+
+Now, in your index.php, remove the two requires, and add a new one - 
 
 index.php
 ```php
@@ -217,3 +221,15 @@ use Foos\demo;
 $fooDemo = new demo();
 $fooDemo->doStuff();
 ```
+
+The code works perfectly. No need to use another require statement anywhere in the code base.
+
+Here's how it works - 
+
+Once registered, spl_autoload_register listens.
+
+Whenever during the execution a new and unrecognized class (full)name is detected, the spl_autoload_register passes it (class full name) to it's registered handler function, which processes the class full name in the manner explained above and includes it.
+
+This happens every time the code enocunters an new class during the execution.
+
+_Later bitches!_
