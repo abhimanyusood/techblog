@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'namespace, use, and autoloader - The Holy Trinity '
+title: 'The Holy Trinity - namespace, use, and autoloader'
 published: true
 ---
 
