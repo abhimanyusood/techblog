@@ -4,4 +4,13 @@ title: 'namespace, use, and autoloader - The Holy Trinity'
 published: true
 ---
 
-Let's begin
+I made this repo -  
+
+root
+	Foos
+    	demo.php
+    Bars
+    	demo.php
+    index.php
+        
+        
