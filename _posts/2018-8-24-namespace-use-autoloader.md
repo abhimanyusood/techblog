@@ -49,9 +49,9 @@ Cannot redeclare class demo in root\Bars\demo.php
 
 >This is the worst possible approach to understanding namespaces
 
-Here's your mistake - you're trying to understand namespace as a **'conflict resolution mechanism'** - a system that you have to artificially introduce to avoid conflict in case two classes, metods etc. have a common name.
+Here's your mistake - you're trying to understand namespace as a **'conflict resolution mechanism'** - a system that you have to artificially introduce to avoid conflict in case two classes, metods etc. happen to have the same name.
 
-It isn't that.
+It ain't that.
 
 Namespace is an **'organizing mechanism'**.
 
