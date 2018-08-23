@@ -4,12 +4,12 @@ title: 'namespace, use, and autoloader - The Holy Trinity'
 published: true
 ---
 
-I made this repox -  
+I made this repo -  
 ```php
-root
-	Foos
-    	demo.php
+root	
     Bars
+    	demo.php
+    Foos
     	demo.php
     index.php
 ````
