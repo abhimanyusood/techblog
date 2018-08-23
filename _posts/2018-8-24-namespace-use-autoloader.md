@@ -228,9 +228,9 @@ Here's how it works -
 
 Once registered, spl_autoload_register listens.
 
-Whenever during the execution a new and unrecognized class (full)name is detected, the spl_autoload_register passes it (class full name) to it's registered handler function, which processes the class full name in the manner explained above and includes it.
+Whenever, during the execution, a new and unrecognized class (full)name is detected, the spl_autoload_register passes it (class full name) to it's registered handler function, which processes the class (full)name in the manner explained above and includes it.
 
-This happens every time the code enocunters an new class during the execution.
+This happens every time the code encounters a new class during the execution.
 
 _Later bitches!_
 
