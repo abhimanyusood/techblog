@@ -173,5 +173,47 @@ That's the beauty of use statement. You retain the organizational power of names
 
 ## AUTOLOADER
 
+We've almost gotten to the point where our code is perfect. But the two require statements are still bothering me.
 
+Come to think of it, if you have a comlex project where each file requires multiple other files, we would soon be in a mess!
 
+Isn't there a way to automatically include these classes, without having to explicitly write the require statements?
+
+Introducing 
+
+```php
+spl_autoload_register
+```
+
+This nifty little function does exactly what we want.
+
+Here's how to use it. We add a new file autoloader.php parallel to index.php in repo root
+
+autoloader.php
+```php
+function my_autoloader($class)
+{
+	$class = str_replace('\\', '/', $class);
+  	include __DIR__.'/'.$class .'.php';
+}
+
+// register the autoloader
+spl_autoload_register('my_autoloader');
+
+```
+
+That's pretty much it.
+
+We define a function my_autoloader that takes a class (full) name as input (the one defined as per namespaces), invert backslashes to forward slashes, prefix __DIR__ to get full class path and includes it!
+
+in your index.php, remove the two requires, and add a new one - 
+
+index.php
+```php
+require_once 'autoloader.php';
+
+use Foos\demo;
+
+$fooDemo = new demo();
+$fooDemo->doStuff();
+```
