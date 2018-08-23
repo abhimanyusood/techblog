@@ -126,7 +126,7 @@ index.php
 require_once 'Foos/demo.php';
 require_once 'Bars/demo.php';
 
-$fooDemo = new Foo\demo();
+$fooDemo = new Foos\demo();
 $fooDemo->doStuff();
 ```
 
@@ -148,8 +148,9 @@ index.php
 require_once 'Foos/demo.php';
 require_once 'Bars/demo.php';
 
-use Foo\demo;
+use Foos\demo;
 
-$fooDemo = new Foo\demo();
+$fooDemo = new demo();
 $fooDemo->doStuff();
 ```
+
