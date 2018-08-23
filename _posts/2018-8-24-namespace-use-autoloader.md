@@ -141,6 +141,8 @@ That's all well and good, but wouldn't it be tedious to use full class names EVE
 
 That's where **use** comes to rescue.
 
+## USE
+
 I do this - 
 
 index.php
@@ -168,5 +170,8 @@ use Foos\demo as demo;
 So, in your code, you can just use the class name demo and the full name Foo\demo will automatically be referenced!
 
 That's the beauty of use statement. You retain the organizational power of namespaces without going through the pain of using full class names each time.
+
+## AUTOLOADER
+
 
 
