@@ -154,3 +154,18 @@ $fooDemo = new demo();
 $fooDemo->doStuff();
 ```
 
+What just happened?
+
+Well, the statement - 
+```php
+use Foos\demo;
+```
+is read as - 
+```php
+use Foos\demo as demo;
+```
+
+So, in your code, you can just use the class name demo and the full name Foo\demo will automatically be referenced!
+
+That's the power of use statement. You retain the organizational power of namespaces without going through the pain of using full class names each time.
+
