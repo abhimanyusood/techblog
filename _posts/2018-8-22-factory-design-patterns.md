@@ -4,7 +4,7 @@ title: An off-beat approach to understanding factory design patterns!
 published: true
 ---
 
-I had no idea what factory patterns were. So I did what any sane coder would do. I decided to google the shit out of it. After spending countless hours in front of my laptop screen, reading article after article, tutorial after tutorial - bang! I still had no idea what the fuck factory patterns were. (Notice the extra fuck, it’s not there for no reason)
+I had no idea what factory patterns were. So, I did what any sane coder would do. I decided to google the shit out of it. After spending countless hours in front of my laptop screen, reading article after article, tutorial after tutorial - bang! I still had no idea what the fuck factory patterns were. (Notice the extra fuck, it’s not there for no reason)
 
 The technical definitions made no sense to me. How the hell did it matter if factory method was using inheritance while abstract factory was using composition? They looked fucking same to me! And how does understanding any of this help me in figuring out how and where to use them? It didn’t! Far from taking me closer to an intimate understanding of these beautiful and useful design patterns, my research was sucking me deeper and deeper into a vortex of confusion and chaos.
 
@@ -381,7 +381,4 @@ That’s it.
 
 I hope this article would fucking change your life.
 
-_Later, bitches!_ 
- 
-
-
+_Later, bitches!_
