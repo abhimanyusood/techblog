@@ -1,7 +1,7 @@
 ---
 layout: post
 title: An off-beat approach to understanding factory design patterns!
-published: true
+published: false
 ---
 
 I had no idea what factory patterns were. So, I did what any sane coder would do. I decided to google the shit out of it. After spending countless hours in front of my laptop screen - reading article after article, tutorial after tutorial - bang! I still had no idea what the fuck factory patterns were. (Notice the extra fuck, it’s not there for no reason)
