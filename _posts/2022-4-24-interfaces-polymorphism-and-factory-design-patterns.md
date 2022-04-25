@@ -176,10 +176,10 @@ Now, your MobileFactory is completely generic. It can take any type of Mobile as
 ```java
 class MobileFactory
     function orderMobile() //generally a static function
-        Nokia n = new Nokia()
-        n.test()
-        n.box()
-        n.ship()
+        Mobile m = new Nokia()
+        m.test()
+        m.box()
+        m.ship()
         
 //Application Logic
 MobileFactory mf = new MobileFactory()
@@ -191,13 +191,13 @@ mf.orderMobile()
 class MobileFactory
 
     function createMobile()
-        Nokia n - new Nokia()
+        Mobile m - new Nokia()
     
     function orderMobile() //generally a static function
-        createMobile()
-        n.test()
-        n.box()
-        n.ship()
+        m = createMobile()
+        m.test()
+        m.box()
+        m.ship()
         
 //Application Logic
 MobileFactory mf = new MobileFactory()
@@ -212,10 +212,10 @@ class MobileFactory
     abstract function createMobile()
     
     function orderMobile() //generally a static function
-        createMobile()
-        n.test()
-        n.box()
-        n.ship()
+        m = createMobile()
+        m.test()
+        m.box()
+        m.ship()
 ```
 
 If a client like Nokia wants to use MobileFactory, they will first have to subclass it. Since createMobile function is abstract, this subclass will first have to implement it. Each subclass can implement it in its own way and instantiate the type of Mobile that it wants.
@@ -228,10 +228,10 @@ class MobileFactory
     abstract function createMobile()
     
     function orderMobile() //generally a static function
-        createMobile()
-        n.test()
-        n.box()
-        n.ship()
+        m = createMobile()
+        m.test()
+        m.box()
+        m.ship()
 
 class NokiaFactory extends MobileFactory
     function createMobile()
