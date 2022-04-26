@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Interfaces, Polymorphism, and Factory Design Patterns
-published: false
+published: true
 ---
 
 The endgoal of factories is object creation. Factories are just ways to create an object. To understand factories, you should completely ignore factories and think in terms of how you’re creating the final object.
@@ -254,7 +254,7 @@ mf.orderMobile()
 #### Real-life use
 In real life, you often come across situations (especially while building frameworks and third-party libraries) where you know beforehand a sequence of operations you want to perform on an object as a part of your business logic, but at the time of coding those operations, you don't know what concrete object those operations will eventually be performed on. You don't care either. These concrete objects follow an interface and can be hot-swapped with each other anyway. For now, you write your business logic operations (in Abstract Creator) as if they are expected to be performed on the interface (Abstract Product) itself.
 
-Eventually, a client will come along and subclass your Abstract Creator into a Concrete Creator. They will implement the factory method and instantiate the Concrete Product. With this, their job would be over. The Concrete Product created by them will sort of flow back into the framework and the rest of the business logic operations will be performed on it.
+Eventually, a client will come along and subclass your Abstract Creator into a Concrete Creator. They will implement the factory method and instantiate the Concrete Product. With this, their job would be over. The Concrete Product created by them will sort of **flow back into the framework** and the rest of the business logic operations will be performed on it.
 
 Thinking in terms of framework is helpful. If you think about it, the following code is nothing but a Mobile Ordering Framework. I can ship this, just like Laravel or Yii2 - 
 
@@ -357,6 +357,217 @@ m.ship()
 ```
 
 Your Factory Method pattern has degenerated into Simple Factory pattern! (Core principle behind Simple Factory is encapsulating object creation. That creation doesn't always have to go through if else statements. However, if you insist, you can simply create subtypes of Nokia like Nokia2g and Nokia3g both of which will implement Mobile interface, and send a type parameter in createMobile() function which will decide which of these two types to actually create. Your code will become COMPLETELY indistinguishable from Simple Factory)
+
+## Abstract Factory Pattern
+
+Let's say, your application uses a set of objects. But the objects in this set follow a theme. There can exist a different set of exactly the same objects which differ from the first set in just their theme. So, at any given moment you would like to hot-swap one object set with another, effectively modifying the "theme" of your entire application while keeping it functionally the same.
+
+Example 1 - Quora's Android Application is primarily made up of two objects - Home screen and the Navigation Drawer. By default, both these have white background. So, I'll call them whiteHomeScreen and whiteNavigationDrawer. There can also exist blackHomeScreen and blackNavigationDrawer that are functionally the exact same as their white versions, but with black backgrounds instead. I might want to just hot-swap the white objects with the black ones, and bingo, my entire app will go Dark Mode without affecting the functionality! In fact, this is how dark mode is implemented.
+
+Here,
+
+Abstract ProductA = HomeScreen
+Abstract ProductB = NavigationDrawer
+Concrete ProductA_light = whiteHomeScreen
+Concrete ProductB_light = whiteNavigaionDrawer
+Concrete ProductA_dark = blackHomeScreen
+Concrete ProductB_dark = blackNavigationDrawer
+Family1 = Light Family =  whiteHomeScreen + whiteNavigaionDrawer
+Family2 = Dark Family = blackHomeScreen + blackNavigationDrawer
+
+blackHomeScreen being "functionally same" as whiteHomeScreen just means that the implement a common interface HomeScreen
+blackNavigationDrawer being "functionally same" as whiteNavigationDrawer just means that the implement a common interface NavigationDrawer
+
+The two white objects form one family of products. The two black objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
+
+If you want your application to be agnostic of whether its working with light products or dark products, you should just make it accept the abstract product as input and perform all the operations on the abstract product!
+
+```java
+class Application
+    function driver(HomeScreen h, NavigationDrawer n)
+        h.render()
+        n.render()
+```
+
+You've written your driver function to accept arguments of the type AbstractProduct. Now, no matter which ConcreteProduct it receives at runtime, it will automagically work with it.
+
+There's one problem though. What if at runtime, the argument recieved by the driver are as follows - 
+h is of the type whiteHomeScreen
+n is of the type blackNavigationDrawer
+
+This isn't breaking any abstractions. Both the arguments perfectly fit their respective argument types. Yet, this will completely break your application. When the application finally renders, it will have a light mode homescreen with a dark mode navigation drawer! 
+
+You see, your application depends on the entire family of objects to do its work. So, it should be receiving the family as an input, not the individual objects!
+
+I might naively try doing something like this - 
+```java
+class Application
+    function driver([HomeScreen, NavigationDrawer] arr)
+        arr[0].render()
+        arr[1].render()
+```
+But this doesn't solve the problem because a) there isn't a way to create arrays of heterogenous types, and b) Even if there were, there's nothing stopping someone from sending \[whiteHomeScreen, blackNavigationDrawer\] to driver
+
+Fundamentally, the problem is this -
+>You want to inject 2 objects into your application, each of which follows its own separate interface but together, are a part of the same family (light/dark)
+
+Here's what you do - 
+>Instead of injecting that family of objects into your application, you inject a factory that can creates that family of objects!
+
+```java
+//Factory
+class LightFactory
+
+    function createHomeScreen
+        HomeScreen h = new whiteHomeScreen()
+        return h
+        
+    function createNavigationDrawer
+        NavigationDrawer n = new whiteNavigationDrawer()
+        return n
+```
+
+```java
+class Application
+    function driver(LighFactory lf)
+        whiteHomeScreen h = lf.createHomeScreen()
+        h.render()
+        whiteNavigationDrawer n = lf.createNavigationDrawer()
+        n.render()
+```
+
+To make LightFactory hot-swappable, we create an interface called AbstractFactory and make LightFactory implement it. Then we inject AbstractFactory into our Application and write all our code on that AbstractFactory. At run-time, we can pass any concrete instantiation of our AbstractFactory as a hot-swap, and our code will still work like a charm!
+
+The AbstractFactory will of course provide two abstract methods, one to create each AbstractProduct. 
+The ConcreteFactory which implements the AbstractFactory will override those abstract methods and create ConcreteProducts
+
+```java
+//Abstract Factory
+class AbstractFactory:
+    abstract function createHomeScreen : HomeScreen
+    abstract function createNavigationDrawer : NavigationDrawer
+```
+```java
+//Concrete Factory
+class LightFactory
+
+    function createHomeScreen
+        HomeScreen h = new whiteHomeScreen()
+        return h
+        
+    function createNavigationDrawer
+        NavigationDrawer n = new whiteNavigationDrawer()
+        return n
+```
+
+```java
+class Application
+    function driver(AbstractFactory af)
+        HomeScreen h = af.createHomeScreen()
+        h.render()
+        NavigationDrawer n = af.createNavigationDrawer()
+        n.render()
+```
+
+Everything here is abstract. The factory injected into the application af is abstract. So we can be sure that no matter what concrete version of that abstract factory we get at runtime, it will have createHomeScreen() and createNavigationDrawer() methods. And no matter what concrete product - whiteHomeScreen or blackHomeScreen that concrete factory ends up creating at runtime, that concrete will be following a common interface HomeScreen which ensures that it will have a render() method which we can call at compile time.
+
+A correction - 
+
+Writing a single driver function in Application was an oversimplification. Generally, Application have a separate method to handle each object. All of those methods would need the injected factory as input. So, instead of injecting the factory into each method, we inject it into the constructor - i.e. - compose the class with it - 
+
+```java
+class Application
+
+    AbstractFactory af = null
+    
+    constructor(f)
+        af = f
+        
+    function renderhomescreen()
+        HomeScreen h = af.createHomeScreen()
+        h.render()
+    
+    function rendernavigationdrawer()
+        NavigationDrawer n = af.createNavigationDrawer()
+        n.render()
+```
+
+That's why we say that 
+
+>Abstract Factory is implemented by Composition
+
+#### Important Notes
+1. The main difference between Abstract Factory and Factory Method is that Abstract Factory is implemented by Composition; but Factory Method is implemented by Inheritance.
+2. The most important point to grasp here is that the abstract factory is injected into the client. This is why we say that Abstract Factory is implemented by Composition. Often, a dependency injection framework would perform that task; but a framework is not required for DI.
+3. The second critical point is that the concrete factories here are not Factory Method implementations!
+
+#### Another Example
+
+Application of Abstract Factory Pattern isn't limited to just themes.
+
+Let's say, your application uses queues to communicate with the server. In this case your application will have to use a set of two objects - 
+
+1. A MessageSender object that pushes the message into queue
+2. A MessageReceiver object that receives the message from queue
+
+By default, SQS queues are used. So, I'll call these objects SQSMessageSender and SQSMessageReceiver
+
+However, why should your application be tightly coupled with SQS? You might want to use RabbitMQ instead of SQS in the future. If that's the case, there can also exist RabbitMessageSender and RabbitMessageReceiver that are functionally the exact same as their SQS versions, but use different queues internally. 
+
+The idea is to write your app in such a way that you can hot-swap SQS with RabbitMQ any time you want without affecting the functionality!
+
+Here,
+
+Abstract ProductA = MessageSender
+Abstract ProductB = MessageReceiver
+Concrete ProductA_sqs = SQSMessageSender
+Concrete ProductB_sqs = SQSMessageReceiver
+Concrete ProductA_rabbit = RabbitMessageSender
+Concrete ProductB_rabbit = RabbitMessageReceiver
+Family1 = sqs Family =  SQSMessageSender + SQSMessageReceiver
+Family2 = rabbit Family = RabbitMessageSender + RabbitMessageReceiver
+
+SQSMessageSender being "functionally same" as RabbitMessageSender just means that the implement a common interface MessageSender
+RabbitMessageSender being "functionally same" as RabbitMessageReceiver just means that the implement a common interface MessageReceiver
+
+The two sqs objects form one family of products. The two rabbit objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
+
+```java
+//Abstract Factory
+class AbstractFactory:
+    abstract function createMessageSender : MessageSender
+    abstract function createMessageReceiver : MessageReceiver
+```
+```java
+//Concrete Factory
+class sqsFactory
+
+    function createMessageSender
+        MessageSender s = new SQSMessageSender()
+        return s
+        
+    function createMessageReceiver
+        MessageReceiver r = new SQSMessageReceiver()
+        return r
+```
+
+```java
+class Application
+
+    AbstractFactory af = null
+    
+    constructor(f)
+        af = f
+        
+    function sendMessage()
+        MessageSender s = af.createMessageSender()
+        s.send()
+    
+    function receiveMessage()
+        MessageReceiver r = af.createMessageReceiver()
+        r.receive()
+```
+
 
 #### References - 
 1. https://stackoverflow.com/a/67047425
