@@ -251,12 +251,12 @@ mf.orderMobile()
 4. Nokia is called the Concrete Product
 5. createMobile() is called the Factory Method
 
-
+#### Real-life use
 In real life, you often come across situations (especially while building frameworks and third-party libraries) where you know beforehand a sequence of operations you want to perform on an object as a part of your business logic, but at the time of coding those operations, you don't know what concrete object those operations will eventually be performed on. You don't care either. These concrete objects follow an interface and can be hot-swapped with each other anyway. For now, you write your business logic operations (in Abstract Creator) as if they are expected to be performed on the interface (Abstract Product) itself.
 
 Eventually, a client will come along and subclass your Abstract Creator into a Concrete Creator. They will implement the factory method and instantiate the Concrete Product. With this, their job would be over. The Concrete Product created by them will sort of flow back into the framework and the rest of the business logic operations will be performed on it.
 
-Thinking in terms of framework is helpful. Let's take this example of a Mobile Ordering Framework. I can ship this, just like Laravel or Yii2 - 
+Thinking in terms of framework is helpful. If you think about it, the following code is nothing but a Mobile Ordering Framework. I can ship this, just like Laravel or Yii2 - 
 
 ```java
 class MobileFactory
@@ -356,7 +356,7 @@ m.box()
 m.ship()
 ```
 
-Your Factory Method pattern has devolved into Simple Factory pattern! (Core principle behind Simple Factory is encapsulating object creation. That creation doesn't always have to go through if else statements. However, if you insist, you can simply create subtypes of Nokia like Nokia2g and Nokia3g both of which will implement Mobile interface, and send a type parameter in createMobile() function which will decide which of these two types to actually create. Your code will become COMPLETELY indistinguishable from Simple Factory)
+Your Factory Method pattern has degenerated into Simple Factory pattern! (Core principle behind Simple Factory is encapsulating object creation. That creation doesn't always have to go through if else statements. However, if you insist, you can simply create subtypes of Nokia like Nokia2g and Nokia3g both of which will implement Mobile interface, and send a type parameter in createMobile() function which will decide which of these two types to actually create. Your code will become COMPLETELY indistinguishable from Simple Factory)
 
 #### References - 
 1. https://stackoverflow.com/a/67047425
