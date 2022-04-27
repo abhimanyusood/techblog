@@ -366,17 +366,16 @@ Example 1 - Quora's Android Application is primarily made up of two objects - Ho
 
 Here,
 
-Abstract ProductA = HomeScreen
-Abstract ProductB = NavigationDrawer
-Concrete ProductA_light = whiteHomeScreen
-Concrete ProductB_light = whiteNavigaionDrawer
-Concrete ProductA_dark = blackHomeScreen
-Concrete ProductB_dark = blackNavigationDrawer
-Family1 = Light Family =  whiteHomeScreen + whiteNavigaionDrawer
-Family2 = Dark Family = blackHomeScreen + blackNavigationDrawer
-
-blackHomeScreen being "functionally same" as whiteHomeScreen just means that they implement a common interface HomeScreen
-blackNavigationDrawer being "functionally same" as whiteNavigationDrawer just means that they implement a common interface NavigationDrawer
+* Abstract ProductA = HomeScreen
+* Abstract ProductB = NavigationDrawer
+* Concrete ProductA_light = whiteHomeScreen
+* Concrete ProductB_light = whiteNavigaionDrawer
+* Concrete ProductA_dark = blackHomeScreen
+* Concrete ProductB_dark = blackNavigationDrawer
+* Family1 = Light Family =  whiteHomeScreen + whiteNavigaionDrawer
+* Family2 = Dark Family = blackHomeScreen + blackNavigationDrawer
+* blackHomeScreen being "functionally same" as whiteHomeScreen just means that they implement a common interface HomeScreen
+* blackNavigationDrawer being "functionally same" as whiteNavigationDrawer just means that they implement a common interface NavigationDrawer
 
 The two white objects form one family of products. The two black objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
 
@@ -392,8 +391,8 @@ class Application
 You've written your driver function to accept arguments of the type AbstractProduct. Now, no matter which ConcreteProduct it receives at runtime, it will automagically work with it.
 
 There's one problem though. What if at runtime, the argument received by the driver are as follows - 
-h is of the type whiteHomeScreen
-n is of the type blackNavigationDrawer
+* h is of the type whiteHomeScreen
+* n is of the type blackNavigationDrawer
 
 This isn't breaking any abstractions. Both the arguments perfectly fit their respective argument types. Yet, this will completely break your application. When the application finally renders, it will have a light mode home screen with a dark mode navigation drawer! 
 
@@ -518,17 +517,16 @@ The idea is to write your app in such a way that you can hot-swap SQS with Rabbi
 
 Here,
 
-Abstract ProductA = MessageSender
-Abstract ProductB = MessageReceiver
-Concrete ProductA_sqs = SQSMessageSender
-Concrete ProductB_sqs = SQSMessageReceiver
-Concrete ProductA_rabbit = RabbitMessageSender
-Concrete ProductB_rabbit = RabbitMessageReceiver
-Family1 = sqs Family =  SQSMessageSender + SQSMessageReceiver
-Family2 = rabbit Family = RabbitMessageSender + RabbitMessageReceiver
-
-SQSMessageSender being "functionally same" as RabbitMessageSender just means that they implement a common interface MessageSender
-RabbitMessageSender being "functionally same" as RabbitMessageReceiver just means that they implement a common interface MessageReceiver
+* Abstract ProductA = MessageSender
+* Abstract ProductB = MessageReceiver
+* Concrete ProductA_sqs = SQSMessageSender
+* Concrete ProductB_sqs = SQSMessageReceiver
+* Concrete ProductA_rabbit = RabbitMessageSender
+* Concrete ProductB_rabbit = RabbitMessageReceiver
+* Family1 = sqs Family =  SQSMessageSender + SQSMessageReceiver
+* Family2 = rabbit Family = RabbitMessageSender + RabbitMessageReceiver
+* SQSMessageSender being "functionally same" as RabbitMessageSender just means that they implement a common interface MessageSender
+* RabbitMessageSender being "functionally same" as RabbitMessageReceiver just means that they implement a common interface MessageReceiver
 
 The two sqs objects form one family of products. The two rabbit objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
 
