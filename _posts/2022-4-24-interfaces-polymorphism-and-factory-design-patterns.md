@@ -7,9 +7,9 @@ published: true
 The end goal of factories is object creation. Factories are just ways to create an object. To understand factories, you should completely ignore factories and think in terms of how you’re creating the final object.
 
 ## Thought-process when creating objects 
-``java
+```python
 Nokia a = new Nokia()
-``
+```
 Anytime you see a “new” statement like this, your mind should immediately think – 
 
 _This is too concrete! Can I bind Nokia to an interface (Mobile) and then do this -_
