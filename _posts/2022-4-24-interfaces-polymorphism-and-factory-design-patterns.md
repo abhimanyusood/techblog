@@ -4,7 +4,7 @@ title: Interfaces, Polymorphism, and Factory Design Patterns
 published: true
 ---
 
-The endgoal of factories is object creation. Factories are just ways to create an object. To understand factories, you should completely ignore factories and think in terms of how you’re creating the final object.
+The end goal of factories is object creation. Factories are just ways to create an object. To understand factories, you should completely ignore factories and think in terms of how you’re creating the final object.
 
 ## Thought-process when creating objects 
 ```java
@@ -33,7 +33,7 @@ a.ring()
 b.ring()
 ```
 
-If you make make Nokia and Oneplus sign a contract by binding them to Mobile Interface, then you can create something called polymorphic arrays – 
+If you make Nokia and Oneplus sign a contract by binding them to Mobile Interface, then you can create something called polymorphic arrays – 
 
 ```java
 Mobile a = new Nokia()
@@ -60,7 +60,7 @@ One year later, when your initial product is in production and stable, the custo
 
 But all your code is written to Nokia! 
 
-You’re screwed. You have to change entire code which is - 
+You’re screwed. You have to change the entire code which is - 
 1. a big hassle
 2. a complete violation of open-close principle
 
@@ -89,7 +89,7 @@ class MainLogic
 
 Let's say, tomorrow the customer comes back and tells you to add a new mobile - Apple. You will have to touch your main logic which is a violation of open-close principle.
 
-> Open-close principle is not just theoretical. Imagine you've got complex production code that has been thoroughly tested. Would you want to touch it even if it's  to add just one line of code to one file, without taking it through the entire QA process again?
+> Open-close principle is not just theoretical. Imagine you've got complex production code that has been thoroughly tested. Would you want to touch it even if it's to add just one line of code to one file, without taking it through the entire QA process again?
 
 Solution - Separate the Object Creation from the Main Logic and abstract it out into a separate class. This class is called a Simple Factory. It does just one thing - creating the object (based on the type flag it gets as input).
 
@@ -109,9 +109,9 @@ class MainLogic
         m.ring()
 ``` 
 
-Your don't have to touch your Main Logic anymore if you want to add a new type of Mobile.
+You don't have to touch your Main Logic anymore if you want to add a new type of Mobile.
 
-> Ultimate endgoal is object creation. Simple Factory just provides a different way to do create the same object, in a way that is more future-proof.
+> Ultimate end goal is object creation. Simple Factory just provides a different way to create the same object, in a way that is more future-proof.
 
 ## Factory Method Pattern
 
@@ -120,7 +120,7 @@ Your don't have to touch your Main Logic anymore if you want to add a new type o
 1. Unlike simple factory, it is NOT the core purpose of factory method pattern to encapsulate out object creation. 
 2. In Headfirst book, the factory method createPizza() of NYStylePizzaStore has the parameter 'type' based on which the exact NYStyle pizza is instantiated. This assumption that factory method must be parameterized leads to the confusion that the purpose of the factory is to allow clients to pick and choose amongst multiple product implementations at runtime. This is false. A factory method by default has no parameters. Sending a parameter to it is just an add-on choice that you can make (this is actually written in GangOfFour book!)
 3. It is NOT the core purpose of factory method pattern to impose a standard operating procedure for quality control on the further process that you perform on your newly created object, as hinted by the Headfirst book.
-4. Don't try to understand factory method pattern by building it UP from simple factory. Simple Factory is a degerate case of Factory Method only in a very tangential sense.
+4. Don't try to understand factory method pattern by building it UP from simple factory. Simple Factory is a degenerate case of Factory Method only in a very tangential sense.
 
 ```java
 class MobileFactory
@@ -152,7 +152,7 @@ mf.orderMobile()
 
 This is always the first step in making your code generic. Now, how can we go one step further and make it even more generic?
 
-**Observation** - Fundamentally, I'm creating a mobile and then performing some business logic steps (test(), box(), ship()) on it. The important thing to note is that no matter which specific instance of Mobile interface that I choose to create, my business logic steps will remain the same! Therefore, in order to make my MobileFactory truly generic, I have to remove Mobile m = new Nokia() instantiation from it. 
+**Observation** - Fundamentally, I'm creating a mobile and then performing some business logic steps (test(), box(), ship()) on it. The important thing to note is that no matter which specific instance of Mobile interface I choose to create, my business logic steps will remain the same! Therefore, in order to make my MobileFactory truly generic, I have to remove Mobile m = new Nokia() instantiation from it. 
 
 One way to do it is to give the responsibility of instantiating Mobile m = Nokia() to someone else. Then you just inject the newly created m into orderMobile function and perform the rest of the business logic steps on m
 
@@ -171,7 +171,7 @@ mf.orderMobile(m)
 
 Now, your MobileFactory is completely generic. It can take any type of Mobile as input and perform your business logic steps on it. But the problem is that it is no longer a factory! A factory, by definition, must do object creation and there's no object creation happening here. There's nothing wrong with this. It's just a different way of accomplishing the same goal. It's just that it is not a factory, and factories is what we're studying.
 
->So, to keep it a factory, we have to somehow keep the object creation tied to the the MobileFactory class, and yet, not have any object instantiation happening in this class!
+>So, to keep it a factory, we have to somehow keep the object creation tied to the MobileFactory class, and yet, not have any object instantiation happening in this class!
 
 ```java
 class MobileFactory
@@ -356,13 +356,13 @@ m.box()
 m.ship()
 ```
 
-Your Factory Method pattern has degenerated into Simple Factory pattern! (Core principle behind Simple Factory is encapsulating object creation. That creation doesn't always have to go through if else statements. However, if you insist, you can simply create subtypes of Nokia like Nokia2g and Nokia3g both of which will implement Mobile interface, and send a type parameter in createMobile() function which will decide which of these two types to actually create. Your code will become COMPLETELY indistinguishable from Simple Factory)
+Your Factory Method pattern has degenerated into Simple Factory pattern! (Core principle behind Simple Factory is encapsulating object creation. That creation doesn't always have to go through if-else statements. However, if you insist, you can simply create subtypes of Nokia like Nokia2g and Nokia3g both of which will implement Mobile interface, and send a type parameter in createMobile() function which will decide which of these two types to actually create. Your code will become COMPLETELY indistinguishable from Simple Factory)
 
 ## Abstract Factory Pattern
 
 Let's say, your application uses a set of objects. But the objects in this set follow a theme. There can exist a different set of exactly the same objects which differ from the first set in just their theme. So, at any given moment you would like to hot-swap one object set with another, effectively modifying the "theme" of your entire application while keeping it functionally the same.
 
-Example 1 - Quora's Android Application is primarily made up of two objects - Home screen and the Navigation Drawer. By default, both these have white background. So, I'll call them whiteHomeScreen and whiteNavigationDrawer. There can also exist blackHomeScreen and blackNavigationDrawer that are functionally the exact same as their white versions, but with black backgrounds instead. I might want to just hot-swap the white objects with the black ones, and bingo, my entire app will go Dark Mode without affecting the functionality! In fact, this is how dark mode is implemented.
+Example 1 - Quora's Android Application is primarily made up of two objects - Home Screen and the Navigation Drawer. By default, both these have white background. So, I'll call them whiteHomeScreen and whiteNavigationDrawer. There can also exist blackHomeScreen and blackNavigationDrawer that are functionally the exact same as their white versions, but with black backgrounds instead. I might want to just hot-swap the white objects with the black ones, and bingo, my entire app will go Dark Mode without affecting the functionality! In fact, this is how dark mode is implemented.
 
 Here,
 
@@ -375,12 +375,12 @@ Concrete ProductB_dark = blackNavigationDrawer
 Family1 = Light Family =  whiteHomeScreen + whiteNavigaionDrawer
 Family2 = Dark Family = blackHomeScreen + blackNavigationDrawer
 
-blackHomeScreen being "functionally same" as whiteHomeScreen just means that the implement a common interface HomeScreen
-blackNavigationDrawer being "functionally same" as whiteNavigationDrawer just means that the implement a common interface NavigationDrawer
+blackHomeScreen being "functionally same" as whiteHomeScreen just means that they implement a common interface HomeScreen
+blackNavigationDrawer being "functionally same" as whiteNavigationDrawer just means that they implement a common interface NavigationDrawer
 
 The two white objects form one family of products. The two black objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
 
-If you want your application to be agnostic of whether its working with light products or dark products, you should just make it accept the abstract product as input and perform all the operations on the abstract product!
+If you want your application to be agnostic of whether it is working with light products or dark products, you should just make it accept the abstract product as input and perform all the operations on the abstract product!
 
 ```java
 class Application
@@ -391,11 +391,11 @@ class Application
 
 You've written your driver function to accept arguments of the type AbstractProduct. Now, no matter which ConcreteProduct it receives at runtime, it will automagically work with it.
 
-There's one problem though. What if at runtime, the argument recieved by the driver are as follows - 
+There's one problem though. What if at runtime, the argument received by the driver are as follows - 
 h is of the type whiteHomeScreen
 n is of the type blackNavigationDrawer
 
-This isn't breaking any abstractions. Both the arguments perfectly fit their respective argument types. Yet, this will completely break your application. When the application finally renders, it will have a light mode homescreen with a dark mode navigation drawer! 
+This isn't breaking any abstractions. Both the arguments perfectly fit their respective argument types. Yet, this will completely break your application. When the application finally renders, it will have a light mode home screen with a dark mode navigation drawer! 
 
 You see, your application depends on the entire family of objects to do its work. So, it should be receiving the family as an input, not the individual objects!
 
@@ -412,7 +412,7 @@ Fundamentally, the problem is this -
 >You want to inject 2 objects into your application, each of which follows its own separate interface but together, are a part of the same family (light/dark)
 
 Here's what you do - 
->Instead of injecting that family of objects into your application, you inject a factory that can creates that family of objects!
+>Instead of injecting that family of objects into your application, you inject a factory that can create that family of objects!
 
 ```java
 //Factory
@@ -473,7 +473,7 @@ Everything here is abstract. The factory injected into the application af is abs
 
 A correction - 
 
-Writing a single driver function in Application was an oversimplification. Generally, Application have a separate method to handle each object. All of those methods would need the injected factory as input. So, instead of injecting the factory into each method, we inject it into the constructor - i.e. - compose the class with it - 
+Writing a single driver function in Application was an oversimplification. Generally, Applications have a separate method to handle each object. All of those methods would need the injected factory as input. So, instead of injecting the factory into each method, we inject it into the constructor - i.e. - compose the class with it - 
 
 ```java
 class Application
@@ -505,7 +505,7 @@ That's why we say that
 
 Application of Abstract Factory Pattern isn't limited to just themes.
 
-Let's say, your application uses queues to communicate with the server. In this case your application will have to use a set of two objects - 
+Let's say, your application uses queues to communicate with the server. In this case, your application will have to use a set of two objects - 
 
 1. A MessageSender object that pushes the message into queue
 2. A MessageReceiver object that receives the message from queue
@@ -527,8 +527,8 @@ Concrete ProductB_rabbit = RabbitMessageReceiver
 Family1 = sqs Family =  SQSMessageSender + SQSMessageReceiver
 Family2 = rabbit Family = RabbitMessageSender + RabbitMessageReceiver
 
-SQSMessageSender being "functionally same" as RabbitMessageSender just means that the implement a common interface MessageSender
-RabbitMessageSender being "functionally same" as RabbitMessageReceiver just means that the implement a common interface MessageReceiver
+SQSMessageSender being "functionally same" as RabbitMessageSender just means that they implement a common interface MessageSender
+RabbitMessageSender being "functionally same" as RabbitMessageReceiver just means that they implement a common interface MessageReceiver
 
 The two sqs objects form one family of products. The two rabbit objects form another family. The two families are related to each other - like when a pair of twins (descending from a common father) ends up marrying another pair of twins (descending from a different common father). The two families will contain related objects/people.
 
