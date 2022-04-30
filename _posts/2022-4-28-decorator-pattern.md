@@ -18,9 +18,8 @@ The first solution that would come to anybody's mind is to create a Logger inter
     * EmailLogger
     * DbLogger
 
-Suddenly a wild new expectation appears. Before writing the message, your system should convert it to one of the following formats - json, xml or yaml.
+Suddenly a wild new expectation appears. Before writing the message, your system should convert it to one of the following formats - json, xml or yaml. And this doesn't have to be an expectation that arises in the future, it can be present from the get-go itself. In either case, the most obvious solution that comes to mind is subclassing each of the above classes-
 
-The most obvious solution is subclassing each of the above classes- 
 * Logger
     * CmdLogger
         * CmdJsonLogger
@@ -38,5 +37,15 @@ The most obvious solution is subclassing each of the above classes-
         * DbJsonLogger
         * DbXmlLogger
         * DbYamlLogger
+
+
+Why is this not a good solution?
+
+Class Explosion - What if you had ten targets and five output formats? Would you have written 10x5=50 classes?
+
+But that's a logictical problem. The core issue lies deeper. 
+
+Core issue - Your class structure does not fundamentally mirror the structure of the problem. 
+
  
  
