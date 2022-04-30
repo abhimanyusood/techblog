@@ -12,6 +12,12 @@ published: true
 Say you want to write a logger. It takes a message and outputs it to one of the following targets - cmd, file, email, db. 
 
 The first solution that would come to anybody's mind is to create a Logger interface and write four classes that implement it - 
+
+```java
+class Logger
+   function log()
+```
+
 * Logger
     * CmdLogger
     * FileLogger
@@ -66,6 +72,6 @@ I'll repeat - "Chaining" is the key word here. Almost like function compsition f
 
 For this to work, two preconditions are necessary - 
 1. ConcreteLogger was earlier plugged into our main system via Logger interface. For us to be able to hot-swap ConcreteLogger with the entire chain -  Decorator(ConcreteLogger(x)), the Decorator must be implemeting the Logger interface as well!
-2. In function composition, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteLogger itself to be the input of Decorator. We do this by injecting ConcreteLogger into the constructor of Decorator - i.e. class composition.
+2. In fog, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteLogger itself to be the input of Decorator. We do this by injecting ConcreteLogger into the constructor of Decorator - i.e. class composition. The log() function that the Decorator inherits from Logger interface can first call the log() function of the ConcreteLogger incoming from its own constructor, and then format its output to create the final output.
 
 
