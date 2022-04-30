@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decorator Pattern
-published: false
+published: true
 ---
 
 >Decorators are used to add new behavior to an object, **dynamically**, **at runtime**, without changing the underlying code.
@@ -45,7 +45,27 @@ Class Explosion - What if you had ten targets and five output formats? Would you
 
 But that's a logictical problem. The core issue lies deeper. 
 
-Core issue - Your class structure does not fundamentally mirror the structure of the problem. 
+Core issue - Your class structure does not fundamentally mirror the structure of the problem. If you think about it, CmdJsonLogger, FileJsonLogger, EmailJsonLogger, and DbJsonLogger aren't supposed to be independent entities. Rather JsonLogger is a separate behavior that acts on - or is sort of chained to - the output of CmdLogger, FileLogger, and others. As a matter of fact, if you create a new implementation of Logger in the future with an entirely new target, JsonLogger can be chained to that as well! XmlLogger and YamlLogger can do the same.
 
- 
- 
+"Chaining" is the key word here.
+
+Your system should ideally have just 4+3=7 classes (as opposed to 4\*3=12 classes). We'll call the original classes that implement the Logger interface as ConcreteLogger(s); and the independent classes that can be chained to the output of Loggers to format them as Decorator(s).
+
+* Logger
+    * CmdLogger
+    * FileLogger
+    * EmailLogger
+    * DbLogger
+  
+ * Decorator
+   * JsonDecorator
+   * XmlDecorator
+   * YamlDecorator
+
+I'll repeat - "Chaining" is the key word here. Almost like function compsition fog = f(g(x)). Or in our case, Decorator(ConcreteLogger(x)).
+
+For this to work, two preconditions are necessary - 
+1. ConcreteLogger was earlier plugged into our main system via Logger interface. For us to be able to hot-swap ConcreteLogger with the entire chain -  Decorator(ConcreteLogger(x)), the Decorator must be implemeting the Logger interface as well!
+2. In function composition, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteLogger itself to be the input of Decorator. We do this by injecting ConcreteLogger into the constructor of Decorator - i.e. class composition.
+
+
