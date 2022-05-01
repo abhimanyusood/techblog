@@ -88,4 +88,5 @@ class Decorator implements Logger
 Comment section of this answer - https://stackoverflow.com/a/2707425
 D section of this answer - https://stackoverflow.com/a/47949162
 This answer - https://stackoverflow.com/a/1549771
+https://stackoverflow.com/a/9915893
 https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
