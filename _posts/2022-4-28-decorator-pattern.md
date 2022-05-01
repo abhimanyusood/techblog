@@ -4,10 +4,9 @@ title: Decorator Pattern
 published: true
 ---
 
->Decorators are used to add new behavior to an object, **dynamically**, **at runtime**, without changing the underlying code.
+>Decorators are used to add new behavior to an already instantiated object **at runtime**, as opposed to extending (adding new behavior to) that object's class at compile time by subclassing it.
 
-1. Creating a subclass is how you extend the functionality of your code (i.e. add new behavior) at compile time
-2. Using decorators is how you extend the functionality of your code at runtime
+It is easy to add functionality to an entire class of objects by subclassing an object's class, but it is impossible to extend a single object this way. With the Decorator Pattern, you can add functionality to a single object and leave others like it unmodified.
 
 Say you want to write a logger. It takes a message and outputs it to one of the following targets - cmd, file, email, db. 
 
