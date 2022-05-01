@@ -448,7 +448,7 @@ class AbstractFactory:
 ```
 ```java
 //Concrete Factory
-class LightFactory
+class LightFactory implements AbstractFactory
 
     function createHomeScreen
         HomeScreen h = new whiteHomeScreen()
@@ -538,7 +538,7 @@ class AbstractFactory:
 ```
 ```java
 //Concrete Factory
-class sqsFactory
+class sqsFactory implements AbstractFactory
 
     function createMessageSender
         MessageSender s = new SQSMessageSender()
