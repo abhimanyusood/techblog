@@ -75,5 +75,17 @@ For this to work, two preconditions are necessary -
 
 The Decorator is now plugged into the main system. The main system calls the Decorator's log() function with logMessage as input. Please note that the Decorator has inherited this log() function from Logger interface and then implemented it. Decorator's log() function first jsonifies the incoming logMessage, and then calls the log() function of the ConcreteLogger (that's incoming via its own constructor) with jsonifiedLogMessage as input, which will basically write jsonifiedLogMessage to that particular log target.
 
+```java
+class CmdLogger implements Logger
+   function log()
+```
+```java
+class Decorator implements Logger
+   //constructor is paramout but will be implemented by subclass
+   function log()
+```
 
-
+Comment section of this answer - https://stackoverflow.com/a/2707425
+D section of this answer - https://stackoverflow.com/a/47949162
+This answer - https://stackoverflow.com/a/1549771
+https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
