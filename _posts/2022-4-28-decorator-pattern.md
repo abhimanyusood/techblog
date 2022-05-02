@@ -122,7 +122,7 @@ class Decorator implements Component
 ```
 ```java
 class ConcreteDecorator extends Decorator
-   constructor ConcreteDecorator(concretedecorator)
+   constructor ConcreteDecorator(concretecomponent)
       this.concretecomponent = concretecomponent
    function process(input)
       //Decorate the input
