@@ -142,8 +142,8 @@ Quoting from Stackoverflow -
 "The base Decorator makes it easier to create additional decorators. Imagine that Beverage has dozens of abstract methods, or is an interface, say stir(), getTemperature(), drink(), pour() and the like. Then your decorators all have to implement these methods for no other reason than to delegate them to the wrapped beverage, and your MilkyBeverage and SpicyBeverage each have all those methods. If instead you have a concrete BeverageDecorator class that extends or implements Beverage by simply delegating each call to the wrapped Beverage, subclasses can extend BeverageDecorator and only implement the methods they care about, leaving the base class to handle delegation. This also protects you if the Beverage class (or interface) ever gains a new abstract method: all you need to do is add the method to the BeverageDecorator class. Without it, you would have to add that method to each and every Decorator you had created."
 
 #### Footnotes - 
-* Why is HeadFirst book's coffee example useless? Comment section of this answer - https://stackoverflow.com/a/2707425
-* D section of this answer - https://stackoverflow.com/a/47949162
-* This answer - https://stackoverflow.com/a/1549771
-* What is the need for Abstract Decorator? https://stackoverflow.com/a/9915893
-* https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
+* Why is HeadFirst book's coffee example useless? Comment section of this answer - [https://stackoverflow.com/a/2707425](https://stackoverflow.com/a/2707425)
+* D section of this answer - [https://stackoverflow.com/a/47949162](https://stackoverflow.com/a/47949162)
+* This answer - [https://stackoverflow.com/a/1549771](https://stackoverflow.com/a/1549771)
+* What is the need for Abstract Decorator? [https://stackoverflow.com/a/9915893](https://stackoverflow.com/a/9915893)
+* [https://www.geeksforgeeks.org/timing-functions-with-decorators-python/](https://www.geeksforgeeks.org/timing-functions-with-decorators-python/)
