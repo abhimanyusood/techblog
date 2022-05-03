@@ -46,13 +46,10 @@ Suddenly a wild new expectation appears. Before writing the message, your system
 
 Why is this not a good solution?
 
-Class Explosion - What if you had ten targets and five output formats? Would you have written 10x5=50 classes?
+1. **Class Explosion** - What if you had ten targets and five output formats? Would you have written 10x5=50 classes? But that's a logictical problem. The core issue lies deeper. 
+2. **Core issue** - Your class structure does not fundamentally mirror the structure of the problem. If you think about it, CmdJsonLogger, FileJsonLogger, EmailJsonLogger, and DbJsonLogger aren't supposed to be independent entities. Rather Json formatting is a separate behavior that acts on - or is sort of chained to - the output of CmdLogger, FileLogger, etc. As a matter of fact, if you create a new implementation of Logger in the future with an entirely new target, Json formatting can be chained to that as well! Xml Formatting and Yaml Formatting can do the same.
 
-But that's a logictical problem. The core issue lies deeper. 
-
-Core issue - Your class structure does not fundamentally mirror the structure of the problem. If you think about it, CmdJsonLogger, FileJsonLogger, EmailJsonLogger, and DbJsonLogger aren't supposed to be independent entities. Rather JsonLogger is a separate behavior that acts on - or is sort of chained to - the output of CmdLogger, FileLogger, and others. As a matter of fact, if you create a new implementation of Logger in the future with an entirely new target, JsonLogger can be chained to that as well! XmlLogger and YamlLogger can do the same.
-
-"Chaining" is the key word here.
+>"Chaining" is the key word here.
 
 Your system should ideally have just 4+3=7 classes (as opposed to 4\*3=12 classes) - 
 
@@ -68,9 +65,9 @@ Your system should ideally have just 4+3=7 classes (as opposed to 4\*3=12 classe
    * YamlDecorator
 
 
-1. We have the Logger interface, which we'll interchangeably call Component interface
-2. We'll call the original classes that implement the Logger interface ConcreteLogger(s) or ConcreteComponents
-3. We'll call the independent classes that can be chained to the output of Loggers to format them Decorator(s).
+1. We have the Logger interface, which we'll generically call Component interface
+2. We'll call the original classes that implement the Logger interface - ConcreteLogger(s) or ConcreteComponent(s)
+3. We'll call the independent classes that can be chained to the output of Loggers to format them - Decorator(s).
 
 
 I'll repeat - "Chaining" is the key word here. Almost like function compsition fog = f(g(x)). Or in our case, Decorator(ConcreteLogger(x)).
@@ -129,6 +126,7 @@ class ConcreteDecorator extends Decorator
       //Invoke this.concretecomponent.process()
 ```
 
+#### UML
 ![decorator-pattern.png]({{site.baseurl}}/images/decorator-pattern/decorator-uml.png)
 
 
