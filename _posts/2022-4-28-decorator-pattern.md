@@ -129,7 +129,7 @@ class ConcreteDecorator extends Decorator
       //Invoke this.concretecomponent.process()
 ```
 
-
+![decorator-pattern.png]({{site.baseurl}}/images/decorator-pattern/decorator-uml.png)
 
 
 Comment section of this answer - https://stackoverflow.com/a/2707425
