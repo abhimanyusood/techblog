@@ -70,17 +70,16 @@ Your system should ideally have just 4+3=7 classes (as opposed to 4\*3=12 classe
 3. We'll call the independent classes that can be chained to the output of Loggers to format them - Decorator(s).
 
 
-I'll repeat - "Chaining" is the key word here. Almost like function compsition fog = f(g(x)). Or in our case, Decorator(ConcreteLogger(x)).
+I'll repeat - "Chaining" is the key word here. Almost like function compsition fog = f(g(x)). Or in our case, Decorator(ConcreteLogger(x)). For this to work, two preconditions are necessary - 
 
-For this to work, two preconditions are necessary - 
 1. ConcreteLogger was earlier plugged into our main system via Logger interface. For us to be able to hot-swap ConcreteLogger with the entire chain -  Decorator(ConcreteLogger(x)), the Decorator must be implemeting the Logger interface as well!
 2. In fog, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteLogger itself to be the input of Decorator. We do this by injecting ConcreteLogger into the constructor of Decorator - i.e. class composition. 
 
 Since this is my blog and I can do whatever I want, I'll repeat the entire second-last paragraph in generic terms - 
 
 For this to work, two preconditions are necessary - 
-1. ConcreteComponent was earlier plugged into our main system via Component interface. For us to be able to hot-swap ConcreteComponent with the entire chain -  Decorator(ConcreteComponent(x)), the Decorator must be implemeting the Component interface as well!
-2. In fog, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteComponent itself to be the input of Decorator. We do this by injecting ConcreteComponent into the constructor of Decorator - i.e. class composition. 
+1. ConcreteComponent was earlier plugged into our main system via Component interface. For us to be able to hot-swap ConcreteComponent with the entire chain -  Decorator(ConcreteComponent(x)), **the Decorator must be implemeting the Component interface as well!**
+2. In fog, output of first function becomes the input of second function. In our case, we'll make the entire ConcreteComponent itself to be the input of Decorator. We do this by **injecting ConcreteComponent into the constructor of Decorator** - i.e. class composition. 
 
 
 When the chain is eventually plugged into the main system, the main system calls the Decorator's log() function with logMessage as input. Please note that the Decorator has inherited this log() function from Logger interface and then implemented it. Decorator's log() function first jsonifies the incoming logMessage, and then calls the log() function of the ConcreteLogger (that's incoming via its own constructor) with jsonifiedLogMessage as input, which will basically write jsonifiedLogMessage to that particular log target.
@@ -129,9 +128,14 @@ class ConcreteDecorator extends Decorator
 #### UML
 ![decorator-pattern.png]({{site.baseurl}}/images/decorator-pattern/decorator-uml.png)
 
+Why is the Abstract Decorator necessary? Couldn't we have directly extended ConcreteDecorator directly from Component? What's the purpose of introducting Abstract Decorator in between?
 
-Comment section of this answer - https://stackoverflow.com/a/2707425
+Quoting from Stackoverflow - 
+>The base Decorator makes it easier to create additional decorators. Imagine that Beverage has dozens of abstract methods, or is an interface, say stir(), getTemperature(), drink(), pour() and the like. Then your decorators all have to implement these methods for no other reason than to delegate them to the wrapped beverage, and your MilkyBeverage and SpicyBeverage each have all those methods. If instead you have a concrete BeverageDecorator class that extends or implements Beverage by simply delegating each call to the wrapped Beverage, subclasses can extend BeverageDecorator and only implement the methods they care about, leaving the base class to handle delegation. This also protects you if the Beverage class (or interface) ever gains a new abstract method: all you need to do is add the method to the BeverageDecorator class. Without it, you would have to add that method to each and every Decorator you had created.
+
+
+Why is HeadFirst book's coffee example useless? Comment section of this answer - https://stackoverflow.com/a/2707425
 D section of this answer - https://stackoverflow.com/a/47949162
 This answer - https://stackoverflow.com/a/1549771
-https://stackoverflow.com/a/9915893
+What is the need for Abstract Decorator? https://stackoverflow.com/a/9915893
 https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
