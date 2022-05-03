@@ -130,19 +130,19 @@ class ConcreteDecorator extends Decorator
 ![decorator-pattern.png]({{site.baseurl}}/images/decorator-pattern/decorator-uml.png)
 
 ##### Question - We said Decorator Pattern provides an alternative to sublcassing. Then we made Decorator implement/extende Component, thereby using inheritance!
-Answer - 
+
 1. As per precondition 1 above, to achieve hot-swapability, Decorator(s) have to have the same type as the objects they are going to decorate. So here we’re using inheritance only to achieve the *type matching*, but we aren’t using inheritance to get *behavior*
 2. As per precondition 2 above, to add new behavior to an object, we inject it into the ConcreteDecorator's constructor. So, we are acquiring new behavior not by subclassing, but by composition
 
 
-##### Question Why is the Abstract Decorator necessary? Couldn't we have directly extended ConcreteDecorator directly from Component? What's the purpose of introducting Abstract Decorator in between?
+##### Question - Why is the Abstract Decorator necessary? Couldn't we have directly extended ConcreteDecorator directly from Component? What's the purpose of introducting Abstract Decorator in between?
 
 Quoting from Stackoverflow - 
->The base Decorator makes it easier to create additional decorators. Imagine that Beverage has dozens of abstract methods, or is an interface, say stir(), getTemperature(), drink(), pour() and the like. Then your decorators all have to implement these methods for no other reason than to delegate them to the wrapped beverage, and your MilkyBeverage and SpicyBeverage each have all those methods. If instead you have a concrete BeverageDecorator class that extends or implements Beverage by simply delegating each call to the wrapped Beverage, subclasses can extend BeverageDecorator and only implement the methods they care about, leaving the base class to handle delegation. This also protects you if the Beverage class (or interface) ever gains a new abstract method: all you need to do is add the method to the BeverageDecorator class. Without it, you would have to add that method to each and every Decorator you had created.
+"The base Decorator makes it easier to create additional decorators. Imagine that Beverage has dozens of abstract methods, or is an interface, say stir(), getTemperature(), drink(), pour() and the like. Then your decorators all have to implement these methods for no other reason than to delegate them to the wrapped beverage, and your MilkyBeverage and SpicyBeverage each have all those methods. If instead you have a concrete BeverageDecorator class that extends or implements Beverage by simply delegating each call to the wrapped Beverage, subclasses can extend BeverageDecorator and only implement the methods they care about, leaving the base class to handle delegation. This also protects you if the Beverage class (or interface) ever gains a new abstract method: all you need to do is add the method to the BeverageDecorator class. Without it, you would have to add that method to each and every Decorator you had created."
 
-
-Why is HeadFirst book's coffee example useless? Comment section of this answer - https://stackoverflow.com/a/2707425
-D section of this answer - https://stackoverflow.com/a/47949162
-This answer - https://stackoverflow.com/a/1549771
-What is the need for Abstract Decorator? https://stackoverflow.com/a/9915893
-https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
+#### Footnotes - 
+* Why is HeadFirst book's coffee example useless? Comment section of this answer - https://stackoverflow.com/a/2707425
+* D section of this answer - https://stackoverflow.com/a/47949162
+* This answer - https://stackoverflow.com/a/1549771
+* What is the need for Abstract Decorator? https://stackoverflow.com/a/9915893
+* https://www.geeksforgeeks.org/timing-functions-with-decorators-python/
