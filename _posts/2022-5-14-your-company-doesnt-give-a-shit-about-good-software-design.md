@@ -36,3 +36,14 @@ But five years later, no such thing has happened. The mediocre engineers still c
 
 It's as if the company doesn't care!
 
+<br>
+
+> I repeat - 80% of the companies don't give a shit about good software design!
+
+<br>
+
+But why?
+
+
+
+
