@@ -28,15 +28,15 @@ a = a-b
 
 That is superbly impressive! You have just swapped two numbers without using a temporary variable, which none of your peers were able to do. Your professor will be supremely impressed.
 
-> I guarantee if you're in college, and you write the second solution, you will receive more makrs than all your peers.
+> I guarantee if you're in college, and you write the second solution, you will receive more marks than all your peers.
 
-> I also guaratee that if you're working in a tech company, and you write the second solution, you will be immediately fired!
+> I also guarantee that if you're working in a tech company, and you write the second solution, you will be immediately fired!
 
 Why?
 
-This happens because Universities love cleverness. If you are an intelligent student who can provide a clever solution to a problem, you will immediately become a darling of all your professors.
+This happens because **Universities love cleverness**. If you are an intelligent student who can provide a clever solution to a problem, you will immediately become a darling of all your professors.
 
-But the real world, and the tech companies who live in the real world, don't give a shit about cleverness. What they care about is good software design.
+But the real world, and the tech companies who live in the real world, don't give a shit about cleverness. **What they care about is good software design.**
 
 Consider this scenario - the swap function you just wrote (the one without using a third variable) is a part of an enterprise product commissioned by a client. Initially, the client specified that the input data of the software would only consist of numbers, since they work in a scientific domain.
 
@@ -56,7 +56,7 @@ And that, ladies and gentlemen, is the fundamental difference between good softw
 
 > Good software design isn't just concerned about what the current specifications are, but also how those specifications might change in the future.
 
-> Good softaware design is all about futureproofing your code.
+> Good software design is all about futureproofing your code.
 
-And the this is, the cleverst solution isn't always the most futureproof!
+And the thing is, the cleverest solution isn't always the most futureproof!
 
