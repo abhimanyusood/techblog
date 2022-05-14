@@ -1,89 +1,128 @@
 ---
 layout: post
-title: Your company doesn't give a shit about good software design
+title: Do tech companies “really” care about good software design?
 published: true
 ---
 
-Interfaces, Polymorphism, Design Patterns, Architecture, SOLID Design principles, writing modular, extendable, and scalable code - why do we care so much about all this stuff? 
+I mean, they have to, don’t they?
 
-**Because we think that good software design matters.** In our minds, it is what distinguishes mediocre software engineers from great ones. And being recognized as a great software engineer within your company will lead to both fame and fortune.
+After all, good software design results in great products, which translates into more profit for the company.
 
-> Newsflash - Your company doesn't give a shit about good software design 
+That’s why the best engineers spend years studying this stuff and perfecting their craft. Design patterns, good architecture, writing modular, extendable, and scalable code — these form the core part of our arsenal.
 
-## My initial delusions
+Isn’t this what makes us great at our job? And being acknowledged as a great software engineer in our company would lead to both recognition and money…
 
-When I joined the tech world as a starry-eyed fresher, I was immediately bewildered to see that most of the engineers around me were extremely mediocre. Sure they could get a new project up and running, but their codebases resembled a bowl of freshly baked spaghetti with zero thought put into the scalability, extendability, or good architecture and design.
+> Newsflash — Most tech companies don’t give a fuck about good software design!
 
-> Surely, this charade couldn't continue for long? Surely, one day they would get caught - their mediocrity exposed to the entire world? Right?
+## A Fresher’s Delusion
+When I joined the tech world as a starry-eyed fresher, I was immediately bewildered to see that most of the engineers around me were extremely mediocre.
 
-And, by contrast, since I put extensive thought into the design and architecuture of the code I was writing, my greatness would surely be discovered and acknowledged by the whole company one day. Right?
+Sure they could get a new project up and running, but their codebases resembled a bowl of freshly baked spaghetti with zero thought put into the scalability, extendibility, or good design.
 
-I wouldn't lie - **that was my biggest fantasy during my first few years in the tech industry.**
+> Surely their charade wouldn’t continue for long, right? Surely one day these mediocre engineers would get caught — their mediocrity laid bare for the entire company to see…
 
-But five years later, no such thing has happened. The mediocre engineers still continue to work at the same company, having faced absolutely no repurcussions for their mediocre code. And I too work for the same company, having received zero recognition for the extensive love and care I put into the design of my codebases.
+And by extension, since I put extensive care into the design and architecture, wouldn’t my greatness one day be discovered and acknowledged by the whole company?
 
-It's as if the company doesn't care!
+**This was my biggest fantasy during my first few years in the tech industry.**
 
-> I repeat - 80% of the companies don't give a shit about good software design!
+## The Bitter Reality
 
-## But why?
+But five years later, no such thing has happened.
 
-The *bureaucratic masters* who run the company have no idea about code, much less good code. All they care about is having a working software product that they can sell to the clients. As long as the product is in working state, and thereby sellable, they couldn't care less the underlying code. 
+The mediocre engineers still continue to work at the same company, having faced absolutely no repercussions for their mediocre code.
 
-A mediocre code writes poorly designed codebase that is not modular, not extendable, and not scalable. **But it works**, especially in the starting phase when the total number of users is less than a hundred. It is sellabe. That last part is all the bureaucratic masters care about. They are happy. No repurcussions for the mediocre engineer.
+And, I too work at the same company, having received zero recognition for the extensive love and care I put into the design and architecture of my codebases.
 
-*"Abhimanyu, I get that the consequences of bad software design are not immediately visible. But won't they manifest themselves in the long run? Take scalability, for example. When the number of users rise to a hundred thousand, wouldn't the product eventually break down, exposing the mediocrity of the engineer behind it?"*
+## Companies Are Run By Bureaucrats
+The **bureaucratic masters** who run the company have no idea about code, much less good code. All they care about is having a working software product that they can sell to the clients. As long as the product is in working state, and thereby sellable, they couldn’t care less about the underlying code.
 
-#### No.
+A mediocre engineer writes poorly designed codebase that is not modular, extendable, or scalable.
 
-1. If a company gets to a hundred thousand users, it would have made a shit ton of money by then. And when scalability issues start to come up, the bureaucratic masters will just initiate a new project solely targeted at scaling the product, treating it as **new development**. They would just write new project off as another business expense!
-2. This expenditure is acceptabe to the bureaucratic masters because they don't have enough technical accumen to understand or realize that the product could have been written in a scalable manner in the first place thereby making this new project completely unnecessary, if only they had hired better software engineers who know and care about good software design. This thought wouldn't even occur to them. In their minds, spending money on a new project that improving scalability of a the old, or if you prefer the fancy term, 'legacy' product, is completely acceptable. In fact, in their minds, this is the norm.
+**But it works!**
 
-And so they would put the same mediocre engineer to work on this new project. Behind the scenes, these mediocre engineers would be creating ugly patchworks to get minor improvements in scale. But these minor improvements would be hailed as great leaps, and the bureaucratic masters would pat the engineers, as well as themselves on the back.
+Especially in the starting phase when the total number of users is less than thousand.
 
-The codebase is pretty much spaghetti and a nightmare to maintain? No problem. Just throw more engineers into the team and divide the extra work between them. 
+**It is sellable.**
 
-A new client comes demanding a small customization in one of the features. No problem. Just ask the engineers to branch the entire repository just for that one client.
+> And that last part is all the bureaucratic masters care about.
 
-The possibility that the codebase could have been written in such a manner that it would have completely avoided all these problems in the first place, doesn't even occur to the bureaucratic masters.
+## What About Scalability Issues?
+*“Abhimanyu, I get that the consequences of bad software design are not immediately visible. But won’t they manifest themselves in the long run? Take scalability, for example. When the number of users rise to a hundred thousand, wouldn’t the product eventually break, exposing the mediocrity of the engineer behind it?”*
 
-## A 20 GB sql table
+If a company gets to hundred thousand users, it would have made a shit ton of money by then.
 
-One of my friends worked for a company where five years ago, a mediocre architect took the decision to store all their static image and video files in the sql db (as base64 encoded blobs)
+And when scalability issues start to come up, the bureaucratic masters will just initiate a “new development exercise”, or perhaps, a “brand new project” altogether, targeted at scaling the product.
 
-The size of that single table currently is over 20 GB
+> They would write off this new project as just another business expense.
 
-Three years later, when scalability issues started to pop up, another mediocre architect came up with a brilliant solution. Let's introduct redis into the mix and just cache the **ENTIRE** database on redis. 
+> This expenditure is acceptable to the bureaucratic masters because they don’t have enough technical acumen to understand or realize that the product could have been written in a scalable manner in the first place, thereby making this new development exercise completely unnecessary.
 
-The best part is, the bureaucratic masters don't care. In their minds, it fixed the problem.
+This thought wouldn’t even occur to them.
 
-Two years later, which is now, their sins have finally caught up to them. The cache size has run into hundreds of GB's. The product is excruciatingly slow.
+In their minds, spending money on a new development exercise that improves scalability of the old — or if you prefer the fancy term — ‘legacy’ product is a perfectly acceptable, and perhaps, the only possible way to deal with the situation.
 
-Are you wondering what would the bureaucratic masters do now?
+## Other Examples?
+***The codebase is pretty much spaghetti and a nightmare to maintain?***
 
-Don't worry, they have already made a decision. They have decided to rewrite the entire original product (which they are now calling 'legacy' product) with moden tech stack. They have given this new project a hip sounding name and allocated a handsome budget for it. 
+No problem. Just throw more engineers into the team and divide the extra work between them.
 
-There's a flip side to this as well.
+***A new client comes demanding a small customization in one of the features but the architecture is not extendable?***
 
-## What if you are a great engineer in such a company - one who knows and cares about good software design?
+No problem. Just ask the engineers to branch the entire repository just for that one client.
 
-I'm sure you can extrapolate.
+The possibility that the codebase could have been written in such a manner that it would have completely avoided all these problems in the first place, doesn’t even occur to the bureaucratic masters.
 
-You will spend a few extra days coming up with the best possible architecture for the product you've been asked to build. And since you've written your codebase to be fully modular, extendable, and scalable, it would run smoothly even in the long run. But the bureaucratic masters don't have enough technical accumen to understand or realize that the product is running smoothly because you built it that way in the first place. To them, running smootly is the default behavior. No credit to you. 
+## Story Of A 20-GB SQL Table
+One of my friends worked for a company where five years ago, a mediocre architect took the decision to store all their static image and video files in a new SQL table as base64 encoded blobs.
 
-In fact, the more effort you put into good design, the more smoothly it runs. And the more smoothly it runs, the less attention anyone pays to your product, or you.
+Three years later, when size of that table reached 20 GB and scalability issues started to core up, another mediocre architect came up with a ***brilliant*** solution — let’s just cache the **ENTIRE** database on redis!
 
-On the other hand, mediocre engineers build bad products. Bad products break. When they break, the same mediocre engineer swoops in to fix the "critical" issue that was affecting "client delivery." The fixer is hailed as a hero for saving the day, while realizes that the so called "critical" issue arose in the first place due to the poor design written by the same mediocre engineer!
+The best part is, the bureaucratic masters didn’t care. In their minds, caching fixed the problem.
 
-Remember the few extra days you spent polishing the architecture of your codebase? Beware! That might earn you the tag of a "slow-coder"!
+Two years later, i.e. today, their sins have finally caught up to them. The cache size has grown into hundreds of GB’s. Their app has become excruciatingly slow.
 
-## Are all companies like this?
+***Are you wondering how are the bureaucratic masters going to deal with it?***
 
-What I have written above is true for 80% of the comapnies. Who are the other 20%?
+Don’t worry, they have already made a decision.
 
-1. Companies where there is a very strong tech culture. In such an environment, your peers will realize and acknowledge your capability as a good architect. Not only that, your tech leads would communicate the same to the bureaucratic masters as well.
-2. Companies where the consequences of bad software design and architecture manifest **immediately**. Consider Netflix for example. If you write poor architecture for some service, the service will go down immediately! Such companies are forced to hire the best architecture almost as a necessity.
+> They have decided to rewrite the entire original product (which they are now calling ‘legacy’ product) with modern tech stack.
 
-But for all the other companies, good software design doesn't matter.
+They have given this new project a hip sounding name and allocated a handsome budget for it.
 
-And that is the saddest reality of working in this industry.
+## What Happens To Good Engineers?
+What if you are a great engineer in such a company — one who knows and cares about good software design?
+
+I’m sure you can extrapolate.
+
+You will spend a few extra days coming up with the best possible architecture for the product you’ve been asked to build.
+
+And since you’ll write your codebase to be fully modular, extendable, and scalable, it would run smoothly, even in the long run.
+
+But the bureaucratic masters don’t have enough technical acumen to understand or realize that the product is running smoothly because you built it that way in the first place. To them, running smoothly is the default behavior. No credit to you.
+
+> In fact, the more effort you put into good design, the more smoothly it runs. And the more smoothly it runs, the less attention anyone pays to your product, or you.
+
+On the other hand, mediocre engineers build bad products.
+
+Bad products eventually break.
+
+When they break, the same mediocre engineer swoops in to ***“fix”*** the ***“critical”*** issue that was affecting ***“client delivery”***.
+
+Suddenly, the mediocre engineer is hailed as a hero for saving the day, while nobody realizes that the so called critical issue arose in the first place due to the poor design written by the same mediocre engineer!
+
+And remember the few extra days you spent polishing the architecture of your codebase?
+
+> Congratulations. You’ve now earned the tag of a “slow-coder”!
+
+## Are All Companies Like This?
+Absolutely not.
+
+There are two kinds of companies that do give a shit about good software design —
+
+Companies where there is a very strong tech culture. In such an environment, your peers will realize and acknowledge your capability as a good architect. Not only that, your tech leads would communicate the same to the bureaucratic masters too.
+Companies where the consequences of bad software design and architecture manifest immediately. Consider Netflix, for example. A Netflix engineer has to think about good design constantly, else the users would start facing streaming issues ***immediately***! Such companies are forced to hire the best architects as a necessity.
+But I suspect that companies like this constitute only a tiny minority of the tech world.
+
+The rest of them absolutely don’t give a shit about good software design!
+
+And that is the saddest reality of working in tech industry.
