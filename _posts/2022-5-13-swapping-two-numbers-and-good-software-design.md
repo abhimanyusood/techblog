@@ -26,7 +26,7 @@ b = a-b
 a = a-b
 ```
 
-That is superbly impressive! You have just swapped two numbers without using a temporary variable, which none of your peers was able to do. Your professor will be supremely impressed.
+That is superbly impressive! You have just swapped two numbers without using a temporary variable, which none of your peers were able to do. Your professor will be supremely impressed.
 
 > I guarantee if you're in college, and you write the second solution, you will receive more makrs than all your peers.
 
