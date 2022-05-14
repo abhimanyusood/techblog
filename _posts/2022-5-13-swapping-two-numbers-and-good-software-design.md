@@ -50,13 +50,13 @@ It breaks!
 
 Because you wrote it with the assumption that the inputs will always be numbers.
 
-And at the time of writing the code, you were perfectly justified to do that. After all, those were the exact client specifications. Nobody could have faulted you for what you did.
+And at the time of writing the code, you were perfectly justified to do that. After all, those were the exact client specifications. Nobody can fault you for what you did.
 
-And that, ladies and gentlemen, is the fundamental difference between good software design and the bad one.
+And that, ladies and gentlemen, is the fundamental difference between good software design and bad software design.
 
 > Good software design isn't just concerned about what the current specifications are, but also how those specifications might change in the future.
 
-Good softaware design is all about futureproofing your code.
+> Good softaware design is all about futureproofing your code.
 
-And the cleverst solution isn't always the most futureproof!
+And the this is, the cleverst solution isn't always the most futureproof!
 
