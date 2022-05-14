@@ -119,8 +119,9 @@ Absolutely not.
 
 There are two kinds of companies that do give a shit about good software design —
 
-Companies where there is a very strong tech culture. In such an environment, your peers will realize and acknowledge your capability as a good architect. Not only that, your tech leads would communicate the same to the bureaucratic masters too.
-Companies where the consequences of bad software design and architecture manifest immediately. Consider Netflix, for example. A Netflix engineer has to think about good design constantly, else the users would start facing streaming issues ***immediately***! Such companies are forced to hire the best architects as a necessity.
+1. Companies where there is a very strong tech culture. In such an environment, your peers will realize and acknowledge your capability as a good architect. Not only that, your tech leads would communicate the same to the bureaucratic masters too.
+2. Companies where the consequences of bad software design and architecture manifest immediately. Consider Netflix, for example. A Netflix engineer has to think about good design constantly, else the users would start facing streaming issues ***immediately***! Such companies are forced to hire the best architects as a necessity.
+3. 
 But I suspect that companies like this constitute only a tiny minority of the tech world.
 
 The rest of them absolutely don’t give a shit about good software design!
